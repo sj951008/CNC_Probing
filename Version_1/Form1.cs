@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Management;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Version_1
@@ -25,6 +27,7 @@ namespace Version_1
             serialPort.NewLine = "\n";
             serialPort.WriteLine("M114");
             flagPositionRead = true;
+
             System.Threading.Thread.Sleep(100);
         }
 
@@ -203,6 +206,9 @@ namespace Version_1
                             txtPosY2.Text = txtYCurrentPos.Text;
                             txtPosY3.Text = txtYCurrentPos.Text;
 
+                            txtPosZ1.Text = txtZCurrentPos.Text;
+                            txtPosZ2.Text = txtZCurrentPos.Text;
+                            txtPosZ3.Text = txtZCurrentPos.Text;
                         }
                         //System.Threading.Thread.Sleep(1000);
                         /*
@@ -242,6 +248,7 @@ namespace Version_1
             string str = "G1 Z" + cbbResolution.SelectedItem.ToString() + " " + 'F' + txtFeedRate.Text;
             serialPort.WriteLine(str);
             System.Threading.Thread.Sleep(100);
+            read_position();
         }
 
         private void btJogZNeg_Click(object sender, EventArgs e)
@@ -251,6 +258,7 @@ namespace Version_1
             string str = "G1 Z-" + cbbResolution.SelectedItem.ToString() + " " + 'F' + txtFeedRate.Text;
             serialPort.WriteLine(str);
             System.Threading.Thread.Sleep(100);
+            read_position();
         }
 
         private void btSaveStage1_Click(object sender, EventArgs e)
@@ -308,6 +316,88 @@ namespace Version_1
             txtPosX3.Text = splitTemp[1];
             txtPosY3.Text = splitTemp[2];
             txtPosT3.Text = splitTemp[3];
+        }
+
+        private void Form_Closing(object sender, FormClosingEventArgs e)
+        {
+            serialPort.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //List<string> serialAvailable = new List<string>();
+            //serialAvailable = FindComPorts();
+            //PortInfo portInfo = new PortInfo();
+            List<PortInfo> portInfo = new List<PortInfo>();
+            portInfo = FindComPorts();
+            for (int i = 0; i < portInfo.Count; i++)
+            {
+                cbbComPort.Items.Add(portInfo[i].Name);
+            }
+        }
+
+        // Class to contain the port info.
+        public class PortInfo
+        {
+            public string Name;
+            public string Description;
+        }
+
+        // Method to prepare the WMI query connection options.
+        public static ConnectionOptions PrepareOptions()
+        {
+            ConnectionOptions options = new ConnectionOptions();
+            options.Impersonation = ImpersonationLevel.Impersonate;
+            options.Authentication = AuthenticationLevel.Default;
+            options.EnablePrivileges = true;
+            return options;
+        }
+
+        // Method to prepare WMI query management scope.
+        public static ManagementScope PrepareScope(string machineName, ConnectionOptions options, string path)
+        {
+            ManagementScope scope = new ManagementScope();
+            scope.Path = new ManagementPath(@"\\" + machineName + path);
+            scope.Options = options;
+            scope.Connect();
+            return scope;
+        }
+
+        // Method to retrieve the list of all COM ports.
+        public static List<PortInfo> FindComPorts()
+        {
+            List<PortInfo> portList = new List<PortInfo>();
+            ConnectionOptions options = PrepareOptions();
+            ManagementScope scope = PrepareScope(Environment.MachineName, options, @"\root\CIMV2");
+
+            // Prepare the query and searcher objects.
+            ObjectQuery objectQuery = new ObjectQuery("SELECT * FROM Win32_PnPEntity WHERE ConfigManagerErrorCode = 0");
+            ManagementObjectSearcher portSearcher = new ManagementObjectSearcher(scope, objectQuery);
+
+            using (portSearcher)
+            {
+                string caption = null;
+                // Invoke the searcher and search through each management object for a COM port.
+                foreach (ManagementObject currentObject in portSearcher.Get())
+                {
+                    if (currentObject != null)
+                    {
+                        object currentObjectCaption = currentObject["Caption"];
+                        if (currentObjectCaption != null)
+                        {
+                            caption = currentObjectCaption.ToString();
+                            if (caption.Contains("(COM"))
+                            {
+                                PortInfo portInfo = new PortInfo();
+                                portInfo.Name = caption.Substring(caption.LastIndexOf("(COM")).Replace("(", string.Empty).Replace(")", string.Empty);
+                                portInfo.Description = caption;
+                                portList.Add(portInfo);
+                            }
+                        }
+                    }
+                }
+            }
+            return portList;
         }
     }
 }

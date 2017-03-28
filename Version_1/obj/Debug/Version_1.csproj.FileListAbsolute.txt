@@ -14,3 +14,6 @@ C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\obj\Debug\Resol
 C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\obj\Debug\Version_1.Form1.resources
 C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\obj\Debug\Version_1.Properties.Resources.resources
 C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\obj\Debug\Version_1.csproj.GenerateResource.Cache
+C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\bin\Debug\Microsoft.VisualBasic.dll
+C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml

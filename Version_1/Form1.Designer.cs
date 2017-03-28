@@ -97,7 +97,12 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.txtDirectory = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.txtLoad = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPosZ3 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPosZ1 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtPosZ2 = new System.Windows.Forms.TextBox();
             this.groupBoxSerialPortSetup.SuspendLayout();
             this.gbPosition.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -116,7 +121,8 @@
             // 
             this.groupBoxSerialPortSetup.Controls.Add(this.cbbComPort);
             this.groupBoxSerialPortSetup.Controls.Add(this.btConnect);
-            this.groupBoxSerialPortSetup.Location = new System.Drawing.Point(249, 602);
+            this.groupBoxSerialPortSetup.Controls.Add(this.textBox);
+            this.groupBoxSerialPortSetup.Location = new System.Drawing.Point(249, 630);
             this.groupBoxSerialPortSetup.Name = "groupBoxSerialPortSetup";
             this.groupBoxSerialPortSetup.Size = new System.Drawing.Size(206, 62);
             this.groupBoxSerialPortSetup.TabIndex = 4;
@@ -126,112 +132,10 @@
             // cbbComPort
             // 
             this.cbbComPort.FormattingEnabled = true;
-            this.cbbComPort.Items.AddRange(new object[] {
-            "COM1",
-            "COM2",
-            "COM3",
-            "COM4",
-            "COM5",
-            "COM6",
-            "COM7",
-            "COM8",
-            "COM9",
-            "COM10",
-            "COM11",
-            "COM12",
-            "COM13",
-            "COM14",
-            "COM15",
-            "COM16",
-            "COM17",
-            "COM18",
-            "COM19",
-            "COM20",
-            "COM21",
-            "COM22",
-            "COM23",
-            "COM24",
-            "COM25",
-            "COM26",
-            "COM27",
-            "COM28",
-            "COM29",
-            "COM30",
-            "COM31",
-            "COM32",
-            "COM33",
-            "COM34",
-            "COM35",
-            "COM36",
-            "COM37",
-            "COM38",
-            "COM39",
-            "COM40",
-            "COM41",
-            "COM42",
-            "COM43",
-            "COM44",
-            "COM45",
-            "COM46",
-            "COM47",
-            "COM48",
-            "COM49",
-            "COM50",
-            "COM51",
-            "COM52",
-            "COM53",
-            "COM54",
-            "COM55",
-            "COM56",
-            "COM57",
-            "COM58",
-            "COM59",
-            "COM60",
-            "COM61",
-            "COM62",
-            "COM63",
-            "COM64",
-            "COM65",
-            "COM66",
-            "COM67",
-            "COM68",
-            "COM69",
-            "COM70",
-            "COM71",
-            "COM72",
-            "COM73",
-            "COM74",
-            "COM75",
-            "COM76",
-            "COM77",
-            "COM78",
-            "COM79",
-            "COM80",
-            "COM81",
-            "COM82",
-            "COM83",
-            "COM84",
-            "COM85",
-            "COM86",
-            "COM87",
-            "COM88",
-            "COM89",
-            "COM90",
-            "COM91",
-            "COM92",
-            "COM93",
-            "COM94",
-            "COM95",
-            "COM96",
-            "COM97",
-            "COM98",
-            "COM99",
-            "COM100"});
             this.cbbComPort.Location = new System.Drawing.Point(11, 25);
             this.cbbComPort.Name = "cbbComPort";
             this.cbbComPort.Size = new System.Drawing.Size(61, 21);
             this.cbbComPort.TabIndex = 0;
-            this.cbbComPort.Text = "COM20";
             // 
             // btConnect
             // 
@@ -246,17 +150,17 @@
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(245, 726);
+            this.textBox.Location = new System.Drawing.Point(145, 22);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox.Size = new System.Drawing.Size(85, 24);
+            this.textBox.Size = new System.Drawing.Size(37, 24);
             this.textBox.TabIndex = 5;
             this.textBox.Visible = false;
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(356, 697);
+            this.btSave.Location = new System.Drawing.Point(356, 725);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(75, 23);
             this.btSave.TabIndex = 6;
@@ -349,7 +253,7 @@
             // 
             // txtPosT1
             // 
-            this.txtPosT1.Location = new System.Drawing.Point(29, 75);
+            this.txtPosT1.Location = new System.Drawing.Point(29, 98);
             this.txtPosT1.Name = "txtPosT1";
             this.txtPosT1.Size = new System.Drawing.Size(79, 20);
             this.txtPosT1.TabIndex = 7;
@@ -357,7 +261,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 78);
+            this.label5.Location = new System.Drawing.Point(6, 101);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 13);
             this.label5.TabIndex = 8;
@@ -375,7 +279,7 @@
             this.groupBox3.Controls.Add(this.lblResolution);
             this.groupBox3.Controls.Add(this.btJogYPos);
             this.groupBox3.Controls.Add(this.cbbResolution);
-            this.groupBox3.Location = new System.Drawing.Point(249, 385);
+            this.groupBox3.Location = new System.Drawing.Point(249, 413);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(206, 211);
             this.groupBox3.TabIndex = 15;
@@ -506,7 +410,7 @@
             // 
             // btLoad
             // 
-            this.btLoad.Location = new System.Drawing.Point(275, 697);
+            this.btLoad.Location = new System.Drawing.Point(275, 725);
             this.btLoad.Name = "btLoad";
             this.btLoad.Size = new System.Drawing.Size(75, 23);
             this.btLoad.TabIndex = 16;
@@ -547,30 +451,30 @@
             this.lineShape8.BorderColor = System.Drawing.Color.Lime;
             this.lineShape8.BorderWidth = 5;
             this.lineShape8.Name = "lineShape8";
-            this.lineShape8.X1 = 226;
-            this.lineShape8.X2 = 256;
-            this.lineShape8.Y1 = 56;
-            this.lineShape8.Y2 = 56;
+            this.lineShape8.X1 = 229;
+            this.lineShape8.X2 = 259;
+            this.lineShape8.Y1 = 74;
+            this.lineShape8.Y2 = 74;
             // 
             // lineShape7
             // 
             this.lineShape7.BorderColor = System.Drawing.Color.Lime;
             this.lineShape7.BorderWidth = 5;
             this.lineShape7.Name = "lineShape7";
-            this.lineShape7.X1 = 225;
-            this.lineShape7.X2 = 255;
-            this.lineShape7.Y1 = 182;
-            this.lineShape7.Y2 = 182;
+            this.lineShape7.X1 = 226;
+            this.lineShape7.X2 = 256;
+            this.lineShape7.Y1 = 209;
+            this.lineShape7.Y2 = 209;
             // 
             // lineShape6
             // 
             this.lineShape6.BorderColor = System.Drawing.Color.Lime;
             this.lineShape6.BorderWidth = 5;
             this.lineShape6.Name = "lineShape6";
-            this.lineShape6.X1 = 225;
-            this.lineShape6.X2 = 255;
-            this.lineShape6.Y1 = 310;
-            this.lineShape6.Y2 = 310;
+            this.lineShape6.X1 = 227;
+            this.lineShape6.X2 = 257;
+            this.lineShape6.Y1 = 343;
+            this.lineShape6.Y2 = 343;
             // 
             // lineShape3
             // 
@@ -578,9 +482,9 @@
             this.lineShape3.BorderWidth = 5;
             this.lineShape3.Name = "lineShape3";
             this.lineShape3.X1 = 113;
-            this.lineShape3.X2 = 225;
+            this.lineShape3.X2 = 230;
             this.lineShape3.Y1 = 359;
-            this.lineShape3.Y2 = 310;
+            this.lineShape3.Y2 = 343;
             // 
             // lineShape2
             // 
@@ -588,9 +492,9 @@
             this.lineShape2.BorderWidth = 5;
             this.lineShape2.Name = "lineShape2";
             this.lineShape2.X1 = 114;
-            this.lineShape2.X2 = 226;
+            this.lineShape2.X2 = 230;
             this.lineShape2.Y1 = 105;
-            this.lineShape2.Y2 = 56;
+            this.lineShape2.Y2 = 74;
             // 
             // lineShape1
             // 
@@ -598,9 +502,9 @@
             this.lineShape1.BorderWidth = 5;
             this.lineShape1.Name = "lineShape1";
             this.lineShape1.X1 = 114;
-            this.lineShape1.X2 = 226;
+            this.lineShape1.X2 = 229;
             this.lineShape1.Y1 = 231;
-            this.lineShape1.Y2 = 182;
+            this.lineShape1.Y2 = 209;
             // 
             // ovalShape3
             // 
@@ -636,6 +540,8 @@
             // 
             // gbFirstStage
             // 
+            this.gbFirstStage.Controls.Add(this.label6);
+            this.gbFirstStage.Controls.Add(this.txtPosZ1);
             this.gbFirstStage.Controls.Add(this.btSaveStage1);
             this.gbFirstStage.Controls.Add(this.label2);
             this.gbFirstStage.Controls.Add(this.label1);
@@ -645,9 +551,9 @@
             this.gbFirstStage.Controls.Add(this.txtPosT1);
             this.gbFirstStage.Controls.Add(this.shapeContainer2);
             this.gbFirstStage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbFirstStage.Location = new System.Drawing.Point(256, 133);
+            this.gbFirstStage.Location = new System.Drawing.Point(256, 142);
             this.gbFirstStage.Name = "gbFirstStage";
-            this.gbFirstStage.Size = new System.Drawing.Size(199, 107);
+            this.gbFirstStage.Size = new System.Drawing.Size(199, 128);
             this.gbFirstStage.TabIndex = 24;
             this.gbFirstStage.TabStop = false;
             this.gbFirstStage.Text = "First Stage";
@@ -656,7 +562,7 @@
             // 
             this.btSaveStage1.Location = new System.Drawing.Point(114, 19);
             this.btSaveStage1.Name = "btSaveStage1";
-            this.btSaveStage1.Size = new System.Drawing.Size(75, 76);
+            this.btSaveStage1.Size = new System.Drawing.Size(75, 99);
             this.btSaveStage1.TabIndex = 28;
             this.btSaveStage1.Text = "Save Position";
             this.btSaveStage1.UseVisualStyleBackColor = true;
@@ -701,7 +607,7 @@
             this.shapeContainer2.Name = "shapeContainer2";
             this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape4});
-            this.shapeContainer2.Size = new System.Drawing.Size(193, 88);
+            this.shapeContainer2.Size = new System.Drawing.Size(193, 109);
             this.shapeContainer2.TabIndex = 29;
             this.shapeContainer2.TabStop = false;
             // 
@@ -715,6 +621,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtPosZ3);
             this.groupBox1.Controls.Add(this.btSaveStage3);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
@@ -725,7 +633,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(256, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(199, 107);
+            this.groupBox1.Size = new System.Drawing.Size(199, 129);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Third Stage";
@@ -734,7 +642,7 @@
             // 
             this.btSaveStage3.Location = new System.Drawing.Point(114, 19);
             this.btSaveStage3.Name = "btSaveStage3";
-            this.btSaveStage3.Size = new System.Drawing.Size(75, 76);
+            this.btSaveStage3.Size = new System.Drawing.Size(75, 99);
             this.btSaveStage3.TabIndex = 27;
             this.btSaveStage3.Text = "Save Position";
             this.btSaveStage3.UseVisualStyleBackColor = true;
@@ -775,7 +683,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 78);
+            this.label9.Location = new System.Drawing.Point(6, 101);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(20, 13);
             this.label9.TabIndex = 8;
@@ -783,13 +691,15 @@
             // 
             // txtPosT3
             // 
-            this.txtPosT3.Location = new System.Drawing.Point(29, 75);
+            this.txtPosT3.Location = new System.Drawing.Point(29, 98);
             this.txtPosT3.Name = "txtPosT3";
             this.txtPosT3.Size = new System.Drawing.Size(79, 20);
             this.txtPosT3.TabIndex = 7;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.txtPosZ2);
             this.groupBox2.Controls.Add(this.btSaveStage2);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
@@ -798,9 +708,9 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txtPosT2);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(256, 261);
+            this.groupBox2.Location = new System.Drawing.Point(256, 277);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(199, 107);
+            this.groupBox2.Size = new System.Drawing.Size(199, 131);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Second Stage";
@@ -809,7 +719,7 @@
             // 
             this.btSaveStage2.Location = new System.Drawing.Point(114, 19);
             this.btSaveStage2.Name = "btSaveStage2";
-            this.btSaveStage2.Size = new System.Drawing.Size(75, 76);
+            this.btSaveStage2.Size = new System.Drawing.Size(75, 99);
             this.btSaveStage2.TabIndex = 28;
             this.btSaveStage2.Text = "Save Position";
             this.btSaveStage2.UseVisualStyleBackColor = true;
@@ -850,7 +760,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 78);
+            this.label12.Location = new System.Drawing.Point(6, 101);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(20, 13);
             this.label12.TabIndex = 8;
@@ -858,14 +768,14 @@
             // 
             // txtPosT2
             // 
-            this.txtPosT2.Location = new System.Drawing.Point(29, 75);
+            this.txtPosT2.Location = new System.Drawing.Point(29, 98);
             this.txtPosT2.Name = "txtPosT2";
             this.txtPosT2.Size = new System.Drawing.Size(79, 20);
             this.txtPosT2.TabIndex = 7;
             // 
             // txtDirectory
             // 
-            this.txtDirectory.Location = new System.Drawing.Point(245, 671);
+            this.txtDirectory.Location = new System.Drawing.Point(245, 699);
             this.txtDirectory.Name = "txtDirectory";
             this.txtDirectory.Size = new System.Drawing.Size(210, 20);
             this.txtDirectory.TabIndex = 27;
@@ -874,20 +784,59 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // txtLoad
+            // label4
             // 
-            this.txtLoad.Location = new System.Drawing.Point(9, 310);
-            this.txtLoad.Multiline = true;
-            this.txtLoad.Name = "txtLoad";
-            this.txtLoad.Size = new System.Drawing.Size(201, 195);
-            this.txtLoad.TabIndex = 28;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 75);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(20, 13);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Z3";
+            // 
+            // txtPosZ3
+            // 
+            this.txtPosZ3.Location = new System.Drawing.Point(29, 72);
+            this.txtPosZ3.Name = "txtPosZ3";
+            this.txtPosZ3.Size = new System.Drawing.Size(79, 20);
+            this.txtPosZ3.TabIndex = 29;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(20, 13);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Z1";
+            // 
+            // txtPosZ1
+            // 
+            this.txtPosZ1.Location = new System.Drawing.Point(29, 72);
+            this.txtPosZ1.Name = "txtPosZ1";
+            this.txtPosZ1.Size = new System.Drawing.Size(79, 20);
+            this.txtPosZ1.TabIndex = 30;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 75);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Z2";
+            // 
+            // txtPosZ2
+            // 
+            this.txtPosZ2.Location = new System.Drawing.Point(29, 72);
+            this.txtPosZ2.Name = "txtPosZ2";
+            this.txtPosZ2.Size = new System.Drawing.Size(79, 20);
+            this.txtPosZ2.TabIndex = 29;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 756);
-            this.Controls.Add(this.txtLoad);
             this.Controls.Add(this.txtDirectory);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -897,13 +846,15 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbPosition);
             this.Controls.Add(this.btSave);
-            this.Controls.Add(this.textBox);
             this.Controls.Add(this.groupBoxSerialPortSetup);
             this.Controls.Add(this.shapeContainer1);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "WinnerPrototype";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.groupBoxSerialPortSetup.ResumeLayout(false);
+            this.groupBoxSerialPortSetup.PerformLayout();
             this.gbPosition.ResumeLayout(false);
             this.gbPosition.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -990,7 +941,12 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.TextBox txtDirectory;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.TextBox txtLoad;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtPosZ1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPosZ3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtPosZ2;
     }
 }
 
