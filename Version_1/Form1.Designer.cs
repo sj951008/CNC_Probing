@@ -71,6 +71,8 @@
             this.ovalShape1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.rectangleShape = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.gbFirstStage = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPosZ1 = new System.Windows.Forms.TextBox();
             this.btSaveStage1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -79,6 +81,8 @@
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPosZ3 = new System.Windows.Forms.TextBox();
             this.btSaveStage3 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -87,6 +91,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtPosT3 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtPosZ2 = new System.Windows.Forms.TextBox();
             this.btSaveStage2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -97,12 +103,6 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.txtDirectory = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPosZ3 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtPosZ1 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtPosZ2 = new System.Windows.Forms.TextBox();
             this.groupBoxSerialPortSetup.SuspendLayout();
             this.gbPosition.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -121,7 +121,6 @@
             // 
             this.groupBoxSerialPortSetup.Controls.Add(this.cbbComPort);
             this.groupBoxSerialPortSetup.Controls.Add(this.btConnect);
-            this.groupBoxSerialPortSetup.Controls.Add(this.textBox);
             this.groupBoxSerialPortSetup.Location = new System.Drawing.Point(249, 630);
             this.groupBoxSerialPortSetup.Name = "groupBoxSerialPortSetup";
             this.groupBoxSerialPortSetup.Size = new System.Drawing.Size(206, 62);
@@ -132,14 +131,14 @@
             // cbbComPort
             // 
             this.cbbComPort.FormattingEnabled = true;
-            this.cbbComPort.Location = new System.Drawing.Point(11, 25);
+            this.cbbComPort.Location = new System.Drawing.Point(10, 25);
             this.cbbComPort.Name = "cbbComPort";
-            this.cbbComPort.Size = new System.Drawing.Size(61, 21);
+            this.cbbComPort.Size = new System.Drawing.Size(121, 21);
             this.cbbComPort.TabIndex = 0;
             // 
             // btConnect
             // 
-            this.btConnect.Location = new System.Drawing.Point(77, 25);
+            this.btConnect.Location = new System.Drawing.Point(136, 25);
             this.btConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btConnect.Name = "btConnect";
             this.btConnect.Size = new System.Drawing.Size(59, 21);
@@ -150,7 +149,7 @@
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(145, 22);
+            this.textBox.Location = new System.Drawing.Point(143, 56);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -236,6 +235,7 @@
             // 
             // gbPosition
             // 
+            this.gbPosition.Controls.Add(this.textBox);
             this.gbPosition.Controls.Add(this.txtXCurrentPos);
             this.gbPosition.Controls.Add(this.label3);
             this.gbPosition.Controls.Add(this.lblXpos);
@@ -558,6 +558,22 @@
             this.gbFirstStage.TabStop = false;
             this.gbFirstStage.Text = "First Stage";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(20, 13);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Z1";
+            // 
+            // txtPosZ1
+            // 
+            this.txtPosZ1.Location = new System.Drawing.Point(29, 72);
+            this.txtPosZ1.Name = "txtPosZ1";
+            this.txtPosZ1.Size = new System.Drawing.Size(79, 20);
+            this.txtPosZ1.TabIndex = 30;
+            // 
             // btSaveStage1
             // 
             this.btSaveStage1.Location = new System.Drawing.Point(114, 19);
@@ -638,6 +654,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Third Stage";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 75);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(20, 13);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Z3";
+            // 
+            // txtPosZ3
+            // 
+            this.txtPosZ3.Location = new System.Drawing.Point(29, 72);
+            this.txtPosZ3.Name = "txtPosZ3";
+            this.txtPosZ3.Size = new System.Drawing.Size(79, 20);
+            this.txtPosZ3.TabIndex = 29;
+            // 
             // btSaveStage3
             // 
             this.btSaveStage3.Location = new System.Drawing.Point(114, 19);
@@ -715,6 +747,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Second Stage";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 75);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Z2";
+            // 
+            // txtPosZ2
+            // 
+            this.txtPosZ2.Location = new System.Drawing.Point(29, 72);
+            this.txtPosZ2.Name = "txtPosZ2";
+            this.txtPosZ2.Size = new System.Drawing.Size(79, 20);
+            this.txtPosZ2.TabIndex = 29;
+            // 
             // btSaveStage2
             // 
             this.btSaveStage2.Location = new System.Drawing.Point(114, 19);
@@ -784,54 +832,6 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 75);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 13);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Z3";
-            // 
-            // txtPosZ3
-            // 
-            this.txtPosZ3.Location = new System.Drawing.Point(29, 72);
-            this.txtPosZ3.Name = "txtPosZ3";
-            this.txtPosZ3.Size = new System.Drawing.Size(79, 20);
-            this.txtPosZ3.TabIndex = 29;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 75);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(20, 13);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Z1";
-            // 
-            // txtPosZ1
-            // 
-            this.txtPosZ1.Location = new System.Drawing.Point(29, 72);
-            this.txtPosZ1.Name = "txtPosZ1";
-            this.txtPosZ1.Size = new System.Drawing.Size(79, 20);
-            this.txtPosZ1.TabIndex = 30;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 75);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(20, 13);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Z2";
-            // 
-            // txtPosZ2
-            // 
-            this.txtPosZ2.Location = new System.Drawing.Point(29, 72);
-            this.txtPosZ2.Name = "txtPosZ2";
-            this.txtPosZ2.Size = new System.Drawing.Size(79, 20);
-            this.txtPosZ2.TabIndex = 29;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -854,7 +854,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.groupBoxSerialPortSetup.ResumeLayout(false);
-            this.groupBoxSerialPortSetup.PerformLayout();
             this.gbPosition.ResumeLayout(false);
             this.gbPosition.PerformLayout();
             this.groupBox3.ResumeLayout(false);

@@ -39,7 +39,8 @@ namespace Version_1
                 if (flagbtConnectStationClick == true)
                 {
                     btConnect.Text = "Close";
-                    serialPort.PortName = cbbComPort.SelectedItem.ToString();
+                    string[] split_newline = cbbComPort.SelectedItem.ToString().Split(new char[] { ',' });
+                    serialPort.PortName = split_newline[0];
                     serialPort.Open();
                     serialPort.NewLine = "\n";
                     serialPort.WriteLine("G91");
@@ -332,7 +333,7 @@ namespace Version_1
             portInfo = FindComPorts();
             for (int i = 0; i < portInfo.Count; i++)
             {
-                cbbComPort.Items.Add(portInfo[i].Name);
+                cbbComPort.Items.Add(portInfo[i].Name + ", " + portInfo[i].Description);
             }
         }
 
