@@ -59,6 +59,22 @@
             this.btLoad = new System.Windows.Forms.Button();
             this.txtSave = new System.Windows.Forms.TextBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.atPage = new System.Windows.Forms.TabPage();
+            this.btAtRun = new System.Windows.Forms.Button();
+            this.txtDelay = new System.Windows.Forms.TextBox();
+            this.lblMovingDelay = new System.Windows.Forms.Label();
+            this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.ovalShape6 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.ovalShape5 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.ovalShape4 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.refPage = new System.Windows.Forms.TabPage();
+            this.mnPage = new System.Windows.Forms.TabPage();
+            this.txtDirectory = new System.Windows.Forms.TextBox();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.ovalMoving = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.lineShape5 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.ovalShape7 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.lineShape8 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape7 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape6 = new Microsoft.VisualBasic.PowerPacks.LineShape();
@@ -100,28 +116,30 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtPosT2 = new System.Windows.Forms.TextBox();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.txtDirectory = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.atPage = new System.Windows.Forms.TabPage();
-            this.btAtRun = new System.Windows.Forms.Button();
-            this.txtDelay = new System.Windows.Forms.TextBox();
-            this.lblDelay = new System.Windows.Forms.Label();
-            this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.ovalShape6 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape5 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape4 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.refPage = new System.Windows.Forms.TabPage();
-            this.mnPage = new System.Windows.Forms.TabPage();
-            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.Waiting_Interval = new System.Windows.Forms.Timer(this.components);
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtPosZ0 = new System.Windows.Forms.TextBox();
+            this.btSaveStage0 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtPosY0 = new System.Windows.Forms.TextBox();
+            this.txtPosX0 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtPosT0 = new System.Windows.Forms.TextBox();
+            this.Moving_Interval = new System.Windows.Forms.Timer(this.components);
+            this.ovalWaiting = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.groupBoxSerialPortSetup.SuspendLayout();
             this.gbPosition.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.shapeContainer1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.atPage.SuspendLayout();
             this.gbFirstStage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.atPage.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort
@@ -133,7 +151,7 @@
             // 
             this.groupBoxSerialPortSetup.Controls.Add(this.cbbComPort);
             this.groupBoxSerialPortSetup.Controls.Add(this.btConnect);
-            this.groupBoxSerialPortSetup.Location = new System.Drawing.Point(216, 558);
+            this.groupBoxSerialPortSetup.Location = new System.Drawing.Point(216, 750);
             this.groupBoxSerialPortSetup.Name = "groupBoxSerialPortSetup";
             this.groupBoxSerialPortSetup.Size = new System.Drawing.Size(79, 88);
             this.groupBoxSerialPortSetup.TabIndex = 4;
@@ -161,7 +179,7 @@
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(143, 56);
+            this.textBox.Location = new System.Drawing.Point(160, 62);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -171,7 +189,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(216, 707);
+            this.btSave.Location = new System.Drawing.Point(216, 899);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(75, 23);
             this.btSave.TabIndex = 6;
@@ -184,7 +202,7 @@
             this.txtXCurrentPos.BackColor = System.Drawing.SystemColors.Control;
             this.txtXCurrentPos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtXCurrentPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtXCurrentPos.Location = new System.Drawing.Point(76, 36);
+            this.txtXCurrentPos.Location = new System.Drawing.Point(93, 42);
             this.txtXCurrentPos.Name = "txtXCurrentPos";
             this.txtXCurrentPos.Size = new System.Drawing.Size(79, 24);
             this.txtXCurrentPos.TabIndex = 7;
@@ -195,7 +213,7 @@
             // 
             this.lblXpos.AutoSize = true;
             this.lblXpos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblXpos.Location = new System.Drawing.Point(45, 36);
+            this.lblXpos.Location = new System.Drawing.Point(62, 42);
             this.lblXpos.Name = "lblXpos";
             this.lblXpos.Size = new System.Drawing.Size(27, 26);
             this.lblXpos.TabIndex = 8;
@@ -205,7 +223,7 @@
             // 
             this.lblYPos.AutoSize = true;
             this.lblYPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblYPos.Location = new System.Drawing.Point(45, 62);
+            this.lblYPos.Location = new System.Drawing.Point(62, 68);
             this.lblYPos.Name = "lblYPos";
             this.lblYPos.Size = new System.Drawing.Size(28, 26);
             this.lblYPos.TabIndex = 10;
@@ -216,7 +234,7 @@
             this.txtYCurrentPos.BackColor = System.Drawing.SystemColors.Control;
             this.txtYCurrentPos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtYCurrentPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtYCurrentPos.Location = new System.Drawing.Point(76, 62);
+            this.txtYCurrentPos.Location = new System.Drawing.Point(93, 68);
             this.txtYCurrentPos.Name = "txtYCurrentPos";
             this.txtYCurrentPos.Size = new System.Drawing.Size(79, 24);
             this.txtYCurrentPos.TabIndex = 9;
@@ -227,7 +245,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label3.Location = new System.Drawing.Point(45, 88);
+            this.label3.Location = new System.Drawing.Point(62, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 26);
             this.label3.TabIndex = 12;
@@ -238,7 +256,7 @@
             this.txtZCurrentPos.BackColor = System.Drawing.SystemColors.Control;
             this.txtZCurrentPos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtZCurrentPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtZCurrentPos.Location = new System.Drawing.Point(76, 90);
+            this.txtZCurrentPos.Location = new System.Drawing.Point(93, 96);
             this.txtZCurrentPos.Name = "txtZCurrentPos";
             this.txtZCurrentPos.Size = new System.Drawing.Size(79, 24);
             this.txtZCurrentPos.TabIndex = 11;
@@ -256,9 +274,9 @@
             this.gbPosition.Controls.Add(this.lblYPos);
             this.gbPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.gbPosition.Location = new System.Drawing.Point(13, 472);
+            this.gbPosition.Location = new System.Drawing.Point(9, 605);
             this.gbPosition.Name = "gbPosition";
-            this.gbPosition.Size = new System.Drawing.Size(197, 124);
+            this.gbPosition.Size = new System.Drawing.Size(202, 139);
             this.gbPosition.TabIndex = 13;
             this.gbPosition.TabStop = false;
             this.gbPosition.Text = "Current Position";
@@ -292,7 +310,7 @@
             this.groupBox3.Controls.Add(this.lblResolution);
             this.groupBox3.Controls.Add(this.btJogYPos);
             this.groupBox3.Controls.Add(this.cbbResolution);
-            this.groupBox3.Location = new System.Drawing.Point(217, 413);
+            this.groupBox3.Location = new System.Drawing.Point(217, 605);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(264, 139);
             this.groupBox3.TabIndex = 15;
@@ -366,7 +384,7 @@
             this.btHome.TabIndex = 1;
             this.btHome.Text = "HOME";
             this.btHome.UseVisualStyleBackColor = true;
-            this.btHome.Click += new System.EventHandler(this.button5_Click);
+            this.btHome.Click += new System.EventHandler(this.btHome_Click);
             // 
             // lblFeedRate
             // 
@@ -412,7 +430,7 @@
             // 
             // btLoad
             // 
-            this.btLoad.Location = new System.Drawing.Point(217, 678);
+            this.btLoad.Location = new System.Drawing.Point(217, 870);
             this.btLoad.Name = "btLoad";
             this.btLoad.Size = new System.Drawing.Size(75, 23);
             this.btLoad.TabIndex = 16;
@@ -422,18 +440,29 @@
             // 
             // txtSave
             // 
-            this.txtSave.Location = new System.Drawing.Point(9, 602);
+            this.txtSave.Location = new System.Drawing.Point(9, 750);
             this.txtSave.Multiline = true;
             this.txtSave.Name = "txtSave";
-            this.txtSave.Size = new System.Drawing.Size(201, 142);
+            this.txtSave.Size = new System.Drawing.Size(201, 172);
             this.txtSave.TabIndex = 22;
             // 
             // shapeContainer1
             // 
+            this.shapeContainer1.Controls.Add(this.tabControl1);
+            this.shapeContainer1.Controls.Add(this.groupBoxSerialPortSetup);
+            this.shapeContainer1.Controls.Add(this.txtDirectory);
+            this.shapeContainer1.Controls.Add(this.btSave);
+            this.shapeContainer1.Controls.Add(this.btLoad);
+            this.shapeContainer1.Controls.Add(this.txtSave);
+            this.shapeContainer1.Controls.Add(this.groupBox3);
+            this.shapeContainer1.Controls.Add(this.shapeContainer4);
+            this.shapeContainer1.Controls.Add(this.gbPosition);
             this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
             this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape5,
+            this.ovalShape7,
             this.lineShape8,
             this.lineShape7,
             this.lineShape6,
@@ -444,9 +473,169 @@
             this.ovalShape2,
             this.ovalShape1,
             this.rectangleShape});
-            this.shapeContainer1.Size = new System.Drawing.Size(492, 750);
+            this.shapeContainer1.Size = new System.Drawing.Size(492, 935);
             this.shapeContainer1.TabIndex = 23;
             this.shapeContainer1.TabStop = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.atPage);
+            this.tabControl1.Controls.Add(this.refPage);
+            this.tabControl1.Controls.Add(this.mnPage);
+            this.tabControl1.Location = new System.Drawing.Point(301, 750);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(180, 172);
+            this.tabControl1.TabIndex = 28;
+            // 
+            // atPage
+            // 
+            this.atPage.Controls.Add(this.btAtRun);
+            this.atPage.Controls.Add(this.txtDelay);
+            this.atPage.Controls.Add(this.lblMovingDelay);
+            this.atPage.Controls.Add(this.shapeContainer3);
+            this.atPage.Location = new System.Drawing.Point(4, 22);
+            this.atPage.Name = "atPage";
+            this.atPage.Padding = new System.Windows.Forms.Padding(3);
+            this.atPage.Size = new System.Drawing.Size(172, 146);
+            this.atPage.TabIndex = 0;
+            this.atPage.Text = "AUTO";
+            this.atPage.UseVisualStyleBackColor = true;
+            // 
+            // btAtRun
+            // 
+            this.btAtRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btAtRun.Location = new System.Drawing.Point(54, 113);
+            this.btAtRun.Name = "btAtRun";
+            this.btAtRun.Size = new System.Drawing.Size(55, 26);
+            this.btAtRun.TabIndex = 3;
+            this.btAtRun.Text = "Run";
+            this.btAtRun.UseVisualStyleBackColor = true;
+            this.btAtRun.Click += new System.EventHandler(this.btAtRun_Click);
+            // 
+            // txtDelay
+            // 
+            this.txtDelay.Location = new System.Drawing.Point(96, 76);
+            this.txtDelay.Name = "txtDelay";
+            this.txtDelay.Size = new System.Drawing.Size(49, 20);
+            this.txtDelay.TabIndex = 2;
+            // 
+            // lblMovingDelay
+            // 
+            this.lblMovingDelay.AutoSize = true;
+            this.lblMovingDelay.Location = new System.Drawing.Point(12, 79);
+            this.lblMovingDelay.Name = "lblMovingDelay";
+            this.lblMovingDelay.Size = new System.Drawing.Size(78, 13);
+            this.lblMovingDelay.TabIndex = 1;
+            this.lblMovingDelay.Text = "Moving Delay :";
+            // 
+            // shapeContainer3
+            // 
+            this.shapeContainer3.Location = new System.Drawing.Point(3, 3);
+            this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer3.Name = "shapeContainer3";
+            this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.ovalShape6,
+            this.ovalShape5,
+            this.ovalShape4});
+            this.shapeContainer3.Size = new System.Drawing.Size(166, 140);
+            this.shapeContainer3.TabIndex = 0;
+            this.shapeContainer3.TabStop = false;
+            // 
+            // ovalShape6
+            // 
+            this.ovalShape6.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.ovalShape6.FillColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape6.FillGradientColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape6.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.ovalShape6.Location = new System.Drawing.Point(117, 15);
+            this.ovalShape6.Name = "ovalShape6";
+            this.ovalShape6.Size = new System.Drawing.Size(40, 38);
+            // 
+            // ovalShape5
+            // 
+            this.ovalShape5.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.ovalShape5.FillColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape5.FillGradientColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape5.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.ovalShape5.Location = new System.Drawing.Point(65, 16);
+            this.ovalShape5.Name = "ovalShape5";
+            this.ovalShape5.Size = new System.Drawing.Size(40, 38);
+            // 
+            // ovalShape4
+            // 
+            this.ovalShape4.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.ovalShape4.FillColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape4.FillGradientColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape4.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.ovalShape4.Location = new System.Drawing.Point(14, 16);
+            this.ovalShape4.Name = "ovalShape4";
+            this.ovalShape4.Size = new System.Drawing.Size(40, 38);
+            // 
+            // refPage
+            // 
+            this.refPage.Location = new System.Drawing.Point(4, 22);
+            this.refPage.Name = "refPage";
+            this.refPage.Padding = new System.Windows.Forms.Padding(3);
+            this.refPage.Size = new System.Drawing.Size(172, 146);
+            this.refPage.TabIndex = 1;
+            this.refPage.Text = "Ref.";
+            this.refPage.UseVisualStyleBackColor = true;
+            // 
+            // mnPage
+            // 
+            this.mnPage.Location = new System.Drawing.Point(4, 22);
+            this.mnPage.Name = "mnPage";
+            this.mnPage.Padding = new System.Windows.Forms.Padding(3);
+            this.mnPage.Size = new System.Drawing.Size(172, 146);
+            this.mnPage.TabIndex = 2;
+            this.mnPage.Text = "Manual Mode";
+            this.mnPage.UseVisualStyleBackColor = true;
+            // 
+            // txtDirectory
+            // 
+            this.txtDirectory.Location = new System.Drawing.Point(216, 844);
+            this.txtDirectory.Name = "txtDirectory";
+            this.txtDirectory.Size = new System.Drawing.Size(79, 20);
+            this.txtDirectory.TabIndex = 27;
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.ovalWaiting,
+            this.ovalMoving});
+            this.shapeContainer4.Size = new System.Drawing.Size(492, 935);
+            this.shapeContainer4.TabIndex = 0;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // ovalMoving
+            // 
+            this.ovalMoving.FillColor = System.Drawing.Color.Red;
+            this.ovalMoving.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.ovalMoving.Location = new System.Drawing.Point(373, 558);
+            this.ovalMoving.Name = "ovalMoving";
+            this.ovalMoving.Size = new System.Drawing.Size(42, 38);
+            // 
+            // lineShape5
+            // 
+            this.lineShape5.BorderColor = System.Drawing.Color.Lime;
+            this.lineShape5.BorderWidth = 5;
+            this.lineShape5.Name = "lineShape5";
+            this.lineShape5.X1 = 110;
+            this.lineShape5.X2 = 256;
+            this.lineShape5.Y1 = 483;
+            this.lineShape5.Y2 = 481;
+            // 
+            // ovalShape7
+            // 
+            this.ovalShape7.FillColor = System.Drawing.Color.Honeydew;
+            this.ovalShape7.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.ovalShape7.Location = new System.Drawing.Point(81, 456);
+            this.ovalShape7.Name = "ovalShape7";
+            this.ovalShape7.Size = new System.Drawing.Size(57, 53);
             // 
             // lineShape8
             // 
@@ -483,9 +672,9 @@
             this.lineShape3.BorderColor = System.Drawing.Color.Lime;
             this.lineShape3.BorderWidth = 5;
             this.lineShape3.Name = "lineShape3";
-            this.lineShape3.X1 = 113;
+            this.lineShape3.X1 = 114;
             this.lineShape3.X2 = 230;
-            this.lineShape3.Y1 = 359;
+            this.lineShape3.Y1 = 368;
             this.lineShape3.Y2 = 343;
             // 
             // lineShape2
@@ -520,7 +709,7 @@
             // 
             this.ovalShape2.FillColor = System.Drawing.Color.Honeydew;
             this.ovalShape2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovalShape2.Location = new System.Drawing.Point(86, 330);
+            this.ovalShape2.Location = new System.Drawing.Point(86, 338);
             this.ovalShape2.Name = "ovalShape2";
             this.ovalShape2.Size = new System.Drawing.Size(57, 53);
             // 
@@ -538,7 +727,7 @@
             this.rectangleShape.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
             this.rectangleShape.Location = new System.Drawing.Point(9, 7);
             this.rectangleShape.Name = "rectangleShape";
-            this.rectangleShape.Size = new System.Drawing.Size(200, 450);
+            this.rectangleShape.Size = new System.Drawing.Size(200, 587);
             // 
             // gbFirstStage
             // 
@@ -823,147 +1012,128 @@
             this.txtPosT2.Size = new System.Drawing.Size(79, 20);
             this.txtPosT2.TabIndex = 7;
             // 
-            // txtDirectory
-            // 
-            this.txtDirectory.Location = new System.Drawing.Point(216, 652);
-            this.txtDirectory.Name = "txtDirectory";
-            this.txtDirectory.Size = new System.Drawing.Size(79, 20);
-            this.txtDirectory.TabIndex = 27;
-            // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // tabControl1
+            // Waiting_Interval
             // 
-            this.tabControl1.Controls.Add(this.atPage);
-            this.tabControl1.Controls.Add(this.refPage);
-            this.tabControl1.Controls.Add(this.mnPage);
-            this.tabControl1.Location = new System.Drawing.Point(301, 558);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(180, 172);
-            this.tabControl1.TabIndex = 28;
+            this.Waiting_Interval.Tick += new System.EventHandler(this.Waiting_Interval_Tick);
             // 
-            // atPage
+            // groupBox4
             // 
-            this.atPage.Controls.Add(this.btAtRun);
-            this.atPage.Controls.Add(this.txtDelay);
-            this.atPage.Controls.Add(this.lblDelay);
-            this.atPage.Controls.Add(this.shapeContainer3);
-            this.atPage.Location = new System.Drawing.Point(4, 22);
-            this.atPage.Name = "atPage";
-            this.atPage.Padding = new System.Windows.Forms.Padding(3);
-            this.atPage.Size = new System.Drawing.Size(172, 146);
-            this.atPage.TabIndex = 0;
-            this.atPage.Text = "AUTO";
-            this.atPage.UseVisualStyleBackColor = true;
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.txtPosZ0);
+            this.groupBox4.Controls.Add(this.btSaveStage0);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.txtPosY0);
+            this.groupBox4.Controls.Add(this.txtPosX0);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.txtPosT0);
+            this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox4.Location = new System.Drawing.Point(256, 414);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(225, 136);
+            this.groupBox4.TabIndex = 29;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Bottom Position";
             // 
-            // btAtRun
+            // label14
             // 
-            this.btAtRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btAtRun.Location = new System.Drawing.Point(54, 113);
-            this.btAtRun.Name = "btAtRun";
-            this.btAtRun.Size = new System.Drawing.Size(55, 26);
-            this.btAtRun.TabIndex = 3;
-            this.btAtRun.Text = "Run";
-            this.btAtRun.UseVisualStyleBackColor = true;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 75);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(20, 13);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Z0";
             // 
-            // txtDelay
+            // txtPosZ0
             // 
-            this.txtDelay.Location = new System.Drawing.Point(76, 76);
-            this.txtDelay.Name = "txtDelay";
-            this.txtDelay.Size = new System.Drawing.Size(49, 20);
-            this.txtDelay.TabIndex = 2;
+            this.txtPosZ0.Location = new System.Drawing.Point(29, 72);
+            this.txtPosZ0.Name = "txtPosZ0";
+            this.txtPosZ0.Size = new System.Drawing.Size(79, 20);
+            this.txtPosZ0.TabIndex = 29;
             // 
-            // lblDelay
+            // btSaveStage0
             // 
-            this.lblDelay.AutoSize = true;
-            this.lblDelay.Location = new System.Drawing.Point(35, 79);
-            this.lblDelay.Name = "lblDelay";
-            this.lblDelay.Size = new System.Drawing.Size(40, 13);
-            this.lblDelay.TabIndex = 1;
-            this.lblDelay.Text = "Delay :";
+            this.btSaveStage0.Location = new System.Drawing.Point(114, 19);
+            this.btSaveStage0.Name = "btSaveStage0";
+            this.btSaveStage0.Size = new System.Drawing.Size(75, 99);
+            this.btSaveStage0.TabIndex = 28;
+            this.btSaveStage0.Text = "Save Position";
+            this.btSaveStage0.UseVisualStyleBackColor = true;
+            this.btSaveStage0.Click += new System.EventHandler(this.btSaveStage0_Click);
             // 
-            // shapeContainer3
+            // label15
             // 
-            this.shapeContainer3.Location = new System.Drawing.Point(3, 3);
-            this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer3.Name = "shapeContainer3";
-            this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.ovalShape6,
-            this.ovalShape5,
-            this.ovalShape4});
-            this.shapeContainer3.Size = new System.Drawing.Size(166, 140);
-            this.shapeContainer3.TabIndex = 0;
-            this.shapeContainer3.TabStop = false;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 49);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(20, 13);
+            this.label15.TabIndex = 28;
+            this.label15.Text = "Y0";
             // 
-            // ovalShape6
+            // label16
             // 
-            this.ovalShape6.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.ovalShape6.FillColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape6.FillGradientColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape6.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovalShape6.Location = new System.Drawing.Point(117, 15);
-            this.ovalShape6.Name = "ovalShape6";
-            this.ovalShape6.Size = new System.Drawing.Size(40, 38);
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 22);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(20, 13);
+            this.label16.TabIndex = 26;
+            this.label16.Text = "X0";
             // 
-            // ovalShape5
+            // txtPosY0
             // 
-            this.ovalShape5.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.ovalShape5.FillColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape5.FillGradientColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape5.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovalShape5.Location = new System.Drawing.Point(65, 16);
-            this.ovalShape5.Name = "ovalShape5";
-            this.ovalShape5.Size = new System.Drawing.Size(40, 38);
+            this.txtPosY0.Location = new System.Drawing.Point(29, 46);
+            this.txtPosY0.Name = "txtPosY0";
+            this.txtPosY0.Size = new System.Drawing.Size(79, 20);
+            this.txtPosY0.TabIndex = 27;
             // 
-            // ovalShape4
+            // txtPosX0
             // 
-            this.ovalShape4.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.ovalShape4.FillColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape4.FillGradientColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape4.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovalShape4.Location = new System.Drawing.Point(14, 16);
-            this.ovalShape4.Name = "ovalShape4";
-            this.ovalShape4.Size = new System.Drawing.Size(40, 38);
+            this.txtPosX0.Location = new System.Drawing.Point(29, 19);
+            this.txtPosX0.Name = "txtPosX0";
+            this.txtPosX0.Size = new System.Drawing.Size(79, 20);
+            this.txtPosX0.TabIndex = 25;
             // 
-            // refPage
+            // label17
             // 
-            this.refPage.Location = new System.Drawing.Point(4, 22);
-            this.refPage.Name = "refPage";
-            this.refPage.Padding = new System.Windows.Forms.Padding(3);
-            this.refPage.Size = new System.Drawing.Size(172, 146);
-            this.refPage.TabIndex = 1;
-            this.refPage.Text = "Ref.";
-            this.refPage.UseVisualStyleBackColor = true;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 101);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(20, 13);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "T0";
             // 
-            // mnPage
+            // txtPosT0
             // 
-            this.mnPage.Location = new System.Drawing.Point(4, 22);
-            this.mnPage.Name = "mnPage";
-            this.mnPage.Padding = new System.Windows.Forms.Padding(3);
-            this.mnPage.Size = new System.Drawing.Size(172, 146);
-            this.mnPage.TabIndex = 2;
-            this.mnPage.Text = "Manual Mode";
-            this.mnPage.UseVisualStyleBackColor = true;
+            this.txtPosT0.Location = new System.Drawing.Point(29, 98);
+            this.txtPosT0.Name = "txtPosT0";
+            this.txtPosT0.Size = new System.Drawing.Size(79, 20);
+            this.txtPosT0.TabIndex = 7;
+            // 
+            // Moving_Interval
+            // 
+            this.Moving_Interval.Tick += new System.EventHandler(this.Moving_Tick);
+            // 
+            // ovalWaiting
+            // 
+            this.ovalWaiting.FillColor = System.Drawing.Color.Blue;
+            this.ovalWaiting.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.ovalWaiting.Location = new System.Drawing.Point(272, 559);
+            this.ovalWaiting.Name = "ovalWaiting";
+            this.ovalWaiting.Size = new System.Drawing.Size(42, 38);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 750);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.txtDirectory);
+            this.ClientSize = new System.Drawing.Size(492, 935);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbFirstStage);
-            this.Controls.Add(this.txtSave);
-            this.Controls.Add(this.btLoad);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.gbPosition);
-            this.Controls.Add(this.btSave);
-            this.Controls.Add(this.groupBoxSerialPortSetup);
             this.Controls.Add(this.shapeContainer1);
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -975,17 +1145,20 @@
             this.gbPosition.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.shapeContainer1.ResumeLayout(false);
+            this.shapeContainer1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.atPage.ResumeLayout(false);
+            this.atPage.PerformLayout();
             this.gbFirstStage.ResumeLayout(false);
             this.gbFirstStage.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.atPage.ResumeLayout(false);
-            this.atPage.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1072,10 +1245,26 @@
         private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape6;
         private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape5;
         private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape4;
-        private System.Windows.Forms.Label lblDelay;
+        private System.Windows.Forms.Label lblMovingDelay;
         private System.Windows.Forms.TextBox txtDelay;
         private System.Windows.Forms.Button btAtRun;
-        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Timer Waiting_Interval;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape5;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape7;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtPosZ0;
+        private System.Windows.Forms.Button btSaveStage0;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtPosY0;
+        private System.Windows.Forms.TextBox txtPosX0;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtPosT0;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalMoving;
+        private System.Windows.Forms.Timer Moving_Interval;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalWaiting;
     }
 }
 

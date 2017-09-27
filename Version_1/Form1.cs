@@ -15,6 +15,12 @@ namespace Version_1
     {
         bool flagbtConnectStationClick = false;
         bool flagPositionRead = false;
+        bool blMovingTick = false;
+        bool blMovingToggle = false;
+        bool blWaitingToggle = false;
+        int intMovingInterval = 0;
+        int intMovingIntervalCount = 0;
+        int intWaitingInterval = 0;
         
         public Form1()
         {
@@ -138,10 +144,11 @@ namespace Version_1
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btHome_Click(object sender, EventArgs e)
         {
             try
             {
+                backward();
                 serialPort.WriteLine("G28");
                 System.Threading.Thread.Sleep(100);
                 //read_position();
@@ -262,13 +269,22 @@ namespace Version_1
             read_position();
         }
 
+        private void btSaveStage0_Click(object sender, EventArgs e)
+        {
+            txtPosX0.Enabled = false;
+            txtPosY0.Enabled = false;
+            txtPosZ0.Enabled = false;
+
+            txtSave.Text += "S0," + txtPosX0.Text + ',' + txtPosY0.Text + ',' + txtPosZ0.Text + ',' + txtPosT0.Text + "\r\n";
+        }
+
         private void btSaveStage1_Click(object sender, EventArgs e)
         {
             txtPosX1.Enabled = false;
             txtPosY1.Enabled = false;
             txtPosT1.Enabled = false;
 
-            txtSave.Text += "S1," + txtPosX1.Text + ',' + txtPosY1.Text + ',' + txtPosT1.Text + "\r\n";
+            txtSave.Text += "S1," + txtPosX1.Text + ',' + txtPosY1.Text + ',' + txtPosZ1.Text + ',' + txtPosT1.Text + "\r\n";
         }
 
         private void btSaveStage2_Click(object sender, EventArgs e)
@@ -277,7 +293,7 @@ namespace Version_1
             txtPosY2.Enabled = false;
             txtPosT2.Enabled = false;
 
-            txtSave.Text += "S2," + txtPosX2.Text + ',' + txtPosY2.Text + ',' + txtPosT2.Text + "\r\n";
+            txtSave.Text += "S2," + txtPosX2.Text + ',' + txtPosY2.Text + ',' + txtPosZ2.Text + ',' + txtPosT2.Text + "\r\n";
         }
 
         private void btSaveStage3_Click(object sender, EventArgs e)
@@ -286,7 +302,7 @@ namespace Version_1
             txtPosY3.Enabled = false;
             txtPosT3.Enabled = false;
 
-            txtSave.Text += "S3," + txtPosX3.Text + ',' + txtPosY3.Text + ',' + txtPosT3.Text + "\r\n";
+            txtSave.Text += "S3," + txtPosX3.Text + ',' + txtPosY3.Text + ',' + txtPosZ3.Text + ',' + txtPosT3.Text + "\r\n";
         }
 
         private void btLoad_Click(object sender, EventArgs e)
@@ -300,9 +316,51 @@ namespace Version_1
                 strData = System.IO.File.ReadAllText(strName);
             }
             string[] split_newline = strData.Split(new string[] { "\r\n" } , StringSplitOptions.RemoveEmptyEntries);
-            string[] splitTemp = null;
-            splitTemp = split_newline[0].Split(new char[] { ',' });
-            txtPosX1.Text = splitTemp[1];
+            //string[] splitTemp = null;
+            //splitTemp = split_newline[0].Split(new char[] { ',' });
+
+            for(int i = 0; i < split_newline.Length; i++)
+            {
+                string[] splitTemp = split_newline[i].Split(new char[] { ',' });
+
+                //reference stage data load
+                if (splitTemp[0] == "S0")
+                {
+                    txtPosX0.Text = splitTemp[1];
+                    txtPosY0.Text = splitTemp[2];
+                    txtPosZ0.Text = splitTemp[3];
+                    txtPosT0.Text = splitTemp[4];
+                }
+
+                //stage 1 data load
+                if (splitTemp[0] == "S1")
+                {
+                    txtPosX1.Text = splitTemp[1];
+                    txtPosY1.Text = splitTemp[2];
+                    txtPosZ1.Text = splitTemp[3];
+                    txtPosT1.Text = splitTemp[4];
+                }
+
+                //stage 2 data load
+                if (splitTemp[0] == "S2")
+                {
+                    txtPosX2.Text = splitTemp[1];
+                    txtPosY2.Text = splitTemp[2];
+                    txtPosZ2.Text = splitTemp[3];
+                    txtPosT2.Text = splitTemp[4];
+                }
+
+                //stage 3 data load
+                if (splitTemp[0] == "S0")
+                {
+                    txtPosX3.Text = splitTemp[1];
+                    txtPosY3.Text = splitTemp[2];
+                    txtPosZ3.Text = splitTemp[3];
+                    txtPosT3.Text = splitTemp[4];
+                }
+            }
+           
+            /*txtPosX1.Text = splitTemp[1];
             txtPosY1.Text = splitTemp[2];
             txtPosT1.Text = splitTemp[3];
 
@@ -317,6 +375,7 @@ namespace Version_1
             txtPosX3.Text = splitTemp[1];
             txtPosY3.Text = splitTemp[2];
             txtPosT3.Text = splitTemp[3];
+             */
         }
 
         private void Form_Closing(object sender, FormClosingEventArgs e)
@@ -399,6 +458,87 @@ namespace Version_1
                 }
             }
             return portList;
+        }
+
+        private void btAtRun_Click(object sender, EventArgs e)
+        {
+            //moving to Top position.
+            string str = "G1" + " X" + txtPosX3.Text + " Y" + txtPosY3 + " X" + txtPosZ3 + cbbResolution.SelectedItem.ToString() + " " + 'F' + txtFeedRate.Text;
+            int intTopStageDelay = Int32.Parse(txtPosT3.Text);
+            serialPort.WriteLine("G1 X" + txtPosX3.Text + " F" + txtFeedRate.Text);
+            System.Threading.Thread.Sleep(10);
+            serialPort.WriteLine("G1 Z" + txtPosZ3.Text + " F" + txtFeedRate.Text);
+            System.Threading.Thread.Sleep(10);
+            serialPort.WriteLine("G1 Y" + txtPosY3.Text + " F" + txtFeedRate.Text);
+
+
+
+        }
+
+        private void backward()
+        {
+            //avoid crashing the oven.
+            string str = "G1 Y-20.000 "+ 'F' + txtFeedRate.Text;
+            serialPort.WriteLine(str);
+            moving_indicator(20.000);
+        }
+
+        private bool moving_indicator(double distance)
+        {
+            double resolution = double.Parse(txtFeedRate.Text) / 60000.000;
+            intMovingInterval = (int)(distance / resolution);
+            Moving_Interval.Enabled = true;
+            return true;
+        }
+
+        private bool waiting_indicator(double distance)
+        {
+            double resolution = double.Parse(txtFeedRate.Text) / 60000.000;
+            intWaitingInterval = (int)(distance / resolution);
+            Waiting_Interval.Enabled = true;
+            return true;
+        }
+
+        private void Moving_Tick(object sender, EventArgs e)
+        {
+            int intInterval100 = intMovingInterval / Moving_Interval.Interval;
+            if (intMovingIntervalCount < intInterval100)
+            {
+                intMovingIntervalCount++;
+                if(blMovingToggle) ovalMoving.FillColor = System.Drawing.Color.Black;
+                else ovalMoving.FillColor = System.Drawing.Color.Red;
+
+                blMovingToggle = !blMovingToggle;
+            }
+
+            if (intMovingIntervalCount > intInterval100)
+            {
+                intMovingIntervalCount = 0;
+                ovalMoving.FillColor = System.Drawing.Color.Red;
+                Moving_Interval.Enabled = false;
+            }
+        }
+
+        int intWaitingIntervalCount = 0;
+
+        private void Waiting_Interval_Tick(object sender, EventArgs e)
+        {
+            int intInterval100 = intWaitingInterval / Waiting_Interval.Interval;
+            if (intWaitingIntervalCount < intInterval100)
+            {
+                intWaitingIntervalCount++;
+                if (blWaitingToggle) ovalWaiting.FillColor = System.Drawing.Color.LightSteelBlue;
+                else ovalWaiting.FillColor = System.Drawing.Color.Blue;
+
+                blWaitingToggle = !blWaitingToggle;
+            }
+
+            if (intWaitingIntervalCount > intInterval100)
+            {
+                intMovingIntervalCount = 0;
+                ovalWaiting.FillColor = System.Drawing.Color.Blue;
+                Waiting_Interval.Enabled = false;
+            }
         }
     }
 }

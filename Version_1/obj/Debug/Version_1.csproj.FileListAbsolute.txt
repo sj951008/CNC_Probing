@@ -17,3 +17,12 @@ C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\obj\Debug\Versi
 C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\bin\Debug\Microsoft.VisualBasic.dll
 C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
 C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml
+E:\Pae Works\git\CNC_Probing\Version_1\obj\Debug\ResolveAssemblyReference.cache
+E:\Pae Works\git\CNC_Probing\Version_1\obj\Debug\Version_1.Form1.resources
+E:\Pae Works\git\CNC_Probing\Version_1\obj\Debug\Version_1.Properties.Resources.resources
+E:\Pae Works\git\CNC_Probing\Version_1\obj\Debug\Version_1.csproj.GenerateResource.Cache
+E:\Pae Works\git\CNC_Probing\Version_1\obj\Debug\Version_1.exe
+E:\Pae Works\git\CNC_Probing\Version_1\obj\Debug\Version_1.pdb
+E:\Pae Works\git\CNC_Probing\Version_1\bin\Debug\Version_1.exe
+E:\Pae Works\git\CNC_Probing\Version_1\bin\Debug\Version_1.pdb
+E:\Pae Works\git\CNC_Probing\Version_1\bin\Debug\Microsoft.VisualBasic.dll
