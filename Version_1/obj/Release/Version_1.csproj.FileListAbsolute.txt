@@ -9,3 +9,7 @@ C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\obj\Release\Ver
 C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\bin\Release\Microsoft.VisualBasic.dll
 C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\bin\Release\Microsoft.VisualBasic.PowerPacks.Vs.dll
 C:\Users\Hp2\Desktop\Siea\CNC Probing 2008\CNC Probing\Version_1\bin\Release\Microsoft.VisualBasic.PowerPacks.Vs.xml
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\obj\Release\Version_1.exe
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\obj\Release\Version_1.pdb
+E:\Pae Works\git\CNC_Probing\Version_1\obj\Release\Version_1.exe
+E:\Pae Works\git\CNC_Probing\Version_1\obj\Release\Version_1.pdb

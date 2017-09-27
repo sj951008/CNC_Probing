@@ -45,7 +45,6 @@
             this.txtPosT1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btJogZNeg = new System.Windows.Forms.Button();
             this.btJogZPos = new System.Windows.Forms.Button();
             this.btJogXNeg = new System.Windows.Forms.Button();
@@ -103,13 +102,26 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.txtDirectory = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.atPage = new System.Windows.Forms.TabPage();
+            this.btAtRun = new System.Windows.Forms.Button();
+            this.txtDelay = new System.Windows.Forms.TextBox();
+            this.lblDelay = new System.Windows.Forms.Label();
+            this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.ovalShape6 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.ovalShape5 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.ovalShape4 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.refPage = new System.Windows.Forms.TabPage();
+            this.mnPage = new System.Windows.Forms.TabPage();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBoxSerialPortSetup.SuspendLayout();
             this.gbPosition.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.gbFirstStage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.atPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort
@@ -121,24 +133,24 @@
             // 
             this.groupBoxSerialPortSetup.Controls.Add(this.cbbComPort);
             this.groupBoxSerialPortSetup.Controls.Add(this.btConnect);
-            this.groupBoxSerialPortSetup.Location = new System.Drawing.Point(249, 630);
+            this.groupBoxSerialPortSetup.Location = new System.Drawing.Point(216, 558);
             this.groupBoxSerialPortSetup.Name = "groupBoxSerialPortSetup";
-            this.groupBoxSerialPortSetup.Size = new System.Drawing.Size(206, 62);
+            this.groupBoxSerialPortSetup.Size = new System.Drawing.Size(79, 88);
             this.groupBoxSerialPortSetup.TabIndex = 4;
             this.groupBoxSerialPortSetup.TabStop = false;
-            this.groupBoxSerialPortSetup.Text = "Station Port Setup";
+            this.groupBoxSerialPortSetup.Text = "Port Setup";
             // 
             // cbbComPort
             // 
             this.cbbComPort.FormattingEnabled = true;
-            this.cbbComPort.Location = new System.Drawing.Point(10, 25);
+            this.cbbComPort.Location = new System.Drawing.Point(10, 23);
             this.cbbComPort.Name = "cbbComPort";
-            this.cbbComPort.Size = new System.Drawing.Size(121, 21);
+            this.cbbComPort.Size = new System.Drawing.Size(59, 21);
             this.cbbComPort.TabIndex = 0;
             // 
             // btConnect
             // 
-            this.btConnect.Location = new System.Drawing.Point(136, 25);
+            this.btConnect.Location = new System.Drawing.Point(10, 54);
             this.btConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btConnect.Name = "btConnect";
             this.btConnect.Size = new System.Drawing.Size(59, 21);
@@ -159,7 +171,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(356, 725);
+            this.btSave.Location = new System.Drawing.Point(216, 707);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(75, 23);
             this.btSave.TabIndex = 6;
@@ -269,7 +281,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Controls.Add(this.btJogZNeg);
+            this.groupBox3.Controls.Add(this.btJogZPos);
             this.groupBox3.Controls.Add(this.btJogXNeg);
             this.groupBox3.Controls.Add(this.btJogXPos);
             this.groupBox3.Controls.Add(this.btJogYNeg);
@@ -279,77 +292,66 @@
             this.groupBox3.Controls.Add(this.lblResolution);
             this.groupBox3.Controls.Add(this.btJogYPos);
             this.groupBox3.Controls.Add(this.cbbResolution);
-            this.groupBox3.Location = new System.Drawing.Point(249, 413);
+            this.groupBox3.Location = new System.Drawing.Point(217, 413);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(206, 211);
+            this.groupBox3.Size = new System.Drawing.Size(264, 139);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Manual";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btJogZNeg);
-            this.groupBox4.Controls.Add(this.btJogZPos);
-            this.groupBox4.Location = new System.Drawing.Point(99, 118);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(89, 83);
-            this.groupBox4.TabIndex = 17;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Z AXIS";
-            // 
             // btJogZNeg
             // 
-            this.btJogZNeg.Location = new System.Drawing.Point(8, 48);
+            this.btJogZNeg.Location = new System.Drawing.Point(7, 93);
             this.btJogZNeg.Name = "btJogZNeg";
-            this.btJogZNeg.Size = new System.Drawing.Size(75, 23);
+            this.btJogZNeg.Size = new System.Drawing.Size(50, 23);
             this.btJogZNeg.TabIndex = 18;
-            this.btJogZNeg.Text = "NEG -";
+            this.btJogZNeg.Text = "-Z";
             this.btJogZNeg.UseVisualStyleBackColor = true;
             this.btJogZNeg.Click += new System.EventHandler(this.btJogZNeg_Click);
             // 
             // btJogZPos
             // 
-            this.btJogZPos.Location = new System.Drawing.Point(8, 19);
+            this.btJogZPos.Location = new System.Drawing.Point(6, 33);
             this.btJogZPos.Name = "btJogZPos";
-            this.btJogZPos.Size = new System.Drawing.Size(75, 23);
+            this.btJogZPos.Size = new System.Drawing.Size(50, 23);
             this.btJogZPos.TabIndex = 17;
-            this.btJogZPos.Text = "POS +";
+            this.btJogZPos.Text = "+Z";
             this.btJogZPos.UseVisualStyleBackColor = true;
             this.btJogZPos.Click += new System.EventHandler(this.btJogZPos_Click);
             // 
             // btJogXNeg
             // 
-            this.btJogXNeg.Location = new System.Drawing.Point(18, 50);
+            this.btJogXNeg.Location = new System.Drawing.Point(58, 64);
             this.btJogXNeg.Name = "btJogXNeg";
-            this.btJogXNeg.Size = new System.Drawing.Size(53, 23);
+            this.btJogXNeg.Size = new System.Drawing.Size(50, 23);
             this.btJogXNeg.TabIndex = 16;
-            this.btJogXNeg.Text = "NEG -";
+            this.btJogXNeg.Text = "+Y";
             this.btJogXNeg.UseVisualStyleBackColor = true;
             this.btJogXNeg.Click += new System.EventHandler(this.btJogXNeg_Click);
             // 
             // btJogXPos
             // 
-            this.btJogXPos.Location = new System.Drawing.Point(136, 50);
+            this.btJogXPos.Location = new System.Drawing.Point(129, 64);
             this.btJogXPos.Name = "btJogXPos";
-            this.btJogXPos.Size = new System.Drawing.Size(53, 23);
+            this.btJogXPos.Size = new System.Drawing.Size(50, 23);
             this.btJogXPos.TabIndex = 3;
-            this.btJogXPos.Text = "POS +";
+            this.btJogXPos.Text = "-Y";
             this.btJogXPos.UseVisualStyleBackColor = true;
             this.btJogXPos.Click += new System.EventHandler(this.btJogXPos_Click);
             // 
             // btJogYNeg
             // 
-            this.btJogYNeg.Location = new System.Drawing.Point(76, 79);
+            this.btJogYNeg.Location = new System.Drawing.Point(93, 93);
             this.btJogYNeg.Name = "btJogYNeg";
-            this.btJogYNeg.Size = new System.Drawing.Size(53, 23);
+            this.btJogYNeg.Size = new System.Drawing.Size(50, 23);
             this.btJogYNeg.TabIndex = 2;
-            this.btJogYNeg.Text = "NEG -";
+            this.btJogYNeg.Text = "-X";
             this.btJogYNeg.UseVisualStyleBackColor = true;
             this.btJogYNeg.Click += new System.EventHandler(this.btJogYNeg_Click);
             // 
             // txtFeedRate
             // 
-            this.txtFeedRate.Location = new System.Drawing.Point(17, 135);
+            this.txtFeedRate.Location = new System.Drawing.Point(187, 67);
             this.txtFeedRate.Name = "txtFeedRate";
             this.txtFeedRate.Size = new System.Drawing.Size(64, 20);
             this.txtFeedRate.TabIndex = 21;
@@ -358,9 +360,9 @@
             // 
             // btHome
             // 
-            this.btHome.Location = new System.Drawing.Point(76, 50);
+            this.btHome.Location = new System.Drawing.Point(184, 19);
             this.btHome.Name = "btHome";
-            this.btHome.Size = new System.Drawing.Size(53, 23);
+            this.btHome.Size = new System.Drawing.Size(60, 26);
             this.btHome.TabIndex = 1;
             this.btHome.Text = "HOME";
             this.btHome.UseVisualStyleBackColor = true;
@@ -369,7 +371,7 @@
             // lblFeedRate
             // 
             this.lblFeedRate.AutoSize = true;
-            this.lblFeedRate.Location = new System.Drawing.Point(15, 118);
+            this.lblFeedRate.Location = new System.Drawing.Point(185, 50);
             this.lblFeedRate.Name = "lblFeedRate";
             this.lblFeedRate.Size = new System.Drawing.Size(57, 13);
             this.lblFeedRate.TabIndex = 20;
@@ -378,7 +380,7 @@
             // lblResolution
             // 
             this.lblResolution.AutoSize = true;
-            this.lblResolution.Location = new System.Drawing.Point(15, 160);
+            this.lblResolution.Location = new System.Drawing.Point(185, 92);
             this.lblResolution.Name = "lblResolution";
             this.lblResolution.Size = new System.Drawing.Size(57, 13);
             this.lblResolution.TabIndex = 19;
@@ -386,11 +388,11 @@
             // 
             // btJogYPos
             // 
-            this.btJogYPos.Location = new System.Drawing.Point(76, 19);
+            this.btJogYPos.Location = new System.Drawing.Point(93, 33);
             this.btJogYPos.Name = "btJogYPos";
-            this.btJogYPos.Size = new System.Drawing.Size(53, 23);
+            this.btJogYPos.Size = new System.Drawing.Size(50, 23);
             this.btJogYPos.TabIndex = 0;
-            this.btJogYPos.Text = "POS +";
+            this.btJogYPos.Text = "+X";
             this.btJogYPos.UseVisualStyleBackColor = true;
             this.btJogYPos.Click += new System.EventHandler(this.btJogYPos_Click);
             // 
@@ -402,7 +404,7 @@
             "1",
             "10",
             "100"});
-            this.cbbResolution.Location = new System.Drawing.Point(17, 176);
+            this.cbbResolution.Location = new System.Drawing.Point(187, 108);
             this.cbbResolution.Name = "cbbResolution";
             this.cbbResolution.Size = new System.Drawing.Size(64, 21);
             this.cbbResolution.TabIndex = 18;
@@ -410,7 +412,7 @@
             // 
             // btLoad
             // 
-            this.btLoad.Location = new System.Drawing.Point(275, 725);
+            this.btLoad.Location = new System.Drawing.Point(217, 678);
             this.btLoad.Name = "btLoad";
             this.btLoad.Size = new System.Drawing.Size(75, 23);
             this.btLoad.TabIndex = 16;
@@ -442,7 +444,7 @@
             this.ovalShape2,
             this.ovalShape1,
             this.rectangleShape});
-            this.shapeContainer1.Size = new System.Drawing.Size(475, 756);
+            this.shapeContainer1.Size = new System.Drawing.Size(492, 750);
             this.shapeContainer1.TabIndex = 23;
             this.shapeContainer1.TabStop = false;
             // 
@@ -553,10 +555,10 @@
             this.gbFirstStage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbFirstStage.Location = new System.Drawing.Point(256, 142);
             this.gbFirstStage.Name = "gbFirstStage";
-            this.gbFirstStage.Size = new System.Drawing.Size(199, 128);
+            this.gbFirstStage.Size = new System.Drawing.Size(225, 128);
             this.gbFirstStage.TabIndex = 24;
             this.gbFirstStage.TabStop = false;
-            this.gbFirstStage.Text = "First Stage";
+            this.gbFirstStage.Text = "Medium Position";
             // 
             // label6
             // 
@@ -623,7 +625,7 @@
             this.shapeContainer2.Name = "shapeContainer2";
             this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape4});
-            this.shapeContainer2.Size = new System.Drawing.Size(193, 109);
+            this.shapeContainer2.Size = new System.Drawing.Size(219, 109);
             this.shapeContainer2.TabIndex = 29;
             this.shapeContainer2.TabStop = false;
             // 
@@ -649,10 +651,10 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(256, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(199, 129);
+            this.groupBox1.Size = new System.Drawing.Size(225, 129);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Third Stage";
+            this.groupBox1.Text = "Top Position";
             // 
             // label4
             // 
@@ -742,10 +744,10 @@
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Location = new System.Drawing.Point(256, 277);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(199, 131);
+            this.groupBox2.Size = new System.Drawing.Size(225, 131);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Second Stage";
+            this.groupBox2.Text = "Bottom Position";
             // 
             // label13
             // 
@@ -823,20 +825,135 @@
             // 
             // txtDirectory
             // 
-            this.txtDirectory.Location = new System.Drawing.Point(245, 699);
+            this.txtDirectory.Location = new System.Drawing.Point(216, 652);
             this.txtDirectory.Name = "txtDirectory";
-            this.txtDirectory.Size = new System.Drawing.Size(210, 20);
+            this.txtDirectory.Size = new System.Drawing.Size(79, 20);
             this.txtDirectory.TabIndex = 27;
             // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.atPage);
+            this.tabControl1.Controls.Add(this.refPage);
+            this.tabControl1.Controls.Add(this.mnPage);
+            this.tabControl1.Location = new System.Drawing.Point(301, 558);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(180, 172);
+            this.tabControl1.TabIndex = 28;
+            // 
+            // atPage
+            // 
+            this.atPage.Controls.Add(this.btAtRun);
+            this.atPage.Controls.Add(this.txtDelay);
+            this.atPage.Controls.Add(this.lblDelay);
+            this.atPage.Controls.Add(this.shapeContainer3);
+            this.atPage.Location = new System.Drawing.Point(4, 22);
+            this.atPage.Name = "atPage";
+            this.atPage.Padding = new System.Windows.Forms.Padding(3);
+            this.atPage.Size = new System.Drawing.Size(172, 146);
+            this.atPage.TabIndex = 0;
+            this.atPage.Text = "AUTO";
+            this.atPage.UseVisualStyleBackColor = true;
+            // 
+            // btAtRun
+            // 
+            this.btAtRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btAtRun.Location = new System.Drawing.Point(54, 113);
+            this.btAtRun.Name = "btAtRun";
+            this.btAtRun.Size = new System.Drawing.Size(55, 26);
+            this.btAtRun.TabIndex = 3;
+            this.btAtRun.Text = "Run";
+            this.btAtRun.UseVisualStyleBackColor = true;
+            // 
+            // txtDelay
+            // 
+            this.txtDelay.Location = new System.Drawing.Point(76, 76);
+            this.txtDelay.Name = "txtDelay";
+            this.txtDelay.Size = new System.Drawing.Size(49, 20);
+            this.txtDelay.TabIndex = 2;
+            // 
+            // lblDelay
+            // 
+            this.lblDelay.AutoSize = true;
+            this.lblDelay.Location = new System.Drawing.Point(35, 79);
+            this.lblDelay.Name = "lblDelay";
+            this.lblDelay.Size = new System.Drawing.Size(40, 13);
+            this.lblDelay.TabIndex = 1;
+            this.lblDelay.Text = "Delay :";
+            // 
+            // shapeContainer3
+            // 
+            this.shapeContainer3.Location = new System.Drawing.Point(3, 3);
+            this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer3.Name = "shapeContainer3";
+            this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.ovalShape6,
+            this.ovalShape5,
+            this.ovalShape4});
+            this.shapeContainer3.Size = new System.Drawing.Size(166, 140);
+            this.shapeContainer3.TabIndex = 0;
+            this.shapeContainer3.TabStop = false;
+            // 
+            // ovalShape6
+            // 
+            this.ovalShape6.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.ovalShape6.FillColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape6.FillGradientColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape6.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.ovalShape6.Location = new System.Drawing.Point(117, 15);
+            this.ovalShape6.Name = "ovalShape6";
+            this.ovalShape6.Size = new System.Drawing.Size(40, 38);
+            // 
+            // ovalShape5
+            // 
+            this.ovalShape5.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.ovalShape5.FillColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape5.FillGradientColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape5.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.ovalShape5.Location = new System.Drawing.Point(65, 16);
+            this.ovalShape5.Name = "ovalShape5";
+            this.ovalShape5.Size = new System.Drawing.Size(40, 38);
+            // 
+            // ovalShape4
+            // 
+            this.ovalShape4.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.ovalShape4.FillColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape4.FillGradientColor = System.Drawing.Color.Chartreuse;
+            this.ovalShape4.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.ovalShape4.Location = new System.Drawing.Point(14, 16);
+            this.ovalShape4.Name = "ovalShape4";
+            this.ovalShape4.Size = new System.Drawing.Size(40, 38);
+            // 
+            // refPage
+            // 
+            this.refPage.Location = new System.Drawing.Point(4, 22);
+            this.refPage.Name = "refPage";
+            this.refPage.Padding = new System.Windows.Forms.Padding(3);
+            this.refPage.Size = new System.Drawing.Size(172, 146);
+            this.refPage.TabIndex = 1;
+            this.refPage.Text = "Ref.";
+            this.refPage.UseVisualStyleBackColor = true;
+            // 
+            // mnPage
+            // 
+            this.mnPage.Location = new System.Drawing.Point(4, 22);
+            this.mnPage.Name = "mnPage";
+            this.mnPage.Padding = new System.Windows.Forms.Padding(3);
+            this.mnPage.Size = new System.Drawing.Size(172, 146);
+            this.mnPage.TabIndex = 2;
+            this.mnPage.Text = "Manual Mode";
+            this.mnPage.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 756);
+            this.ClientSize = new System.Drawing.Size(492, 750);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.txtDirectory);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -858,13 +975,15 @@
             this.gbPosition.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.gbFirstStage.ResumeLayout(false);
             this.gbFirstStage.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.atPage.ResumeLayout(false);
+            this.atPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -893,7 +1012,6 @@
         private System.Windows.Forms.Button btJogYNeg;
         private System.Windows.Forms.Button btHome;
         private System.Windows.Forms.Button btJogYPos;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btJogZNeg;
         private System.Windows.Forms.Button btJogZPos;
         private System.Windows.Forms.Button btLoad;
@@ -946,6 +1064,18 @@
         private System.Windows.Forms.TextBox txtPosZ3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtPosZ2;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage atPage;
+        private System.Windows.Forms.TabPage refPage;
+        private System.Windows.Forms.TabPage mnPage;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer3;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape6;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape5;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape4;
+        private System.Windows.Forms.Label lblDelay;
+        private System.Windows.Forms.TextBox txtDelay;
+        private System.Windows.Forms.Button btAtRun;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
