@@ -21,6 +21,7 @@ namespace Version_1
         int intMovingInterval = 0;
         int intMovingIntervalCount = 0;
         int intWaitingInterval = 0;
+        bool flagTopDelay, flagMediumDelay, flagBottomDelay, flagMoving, flagWaiting;
         
         public Form1()
         {
@@ -351,7 +352,7 @@ namespace Version_1
                 }
 
                 //stage 3 data load
-                if (splitTemp[0] == "S0")
+                if (splitTemp[0] == "S3")
                 {
                     txtPosX3.Text = splitTemp[1];
                     txtPosY3.Text = splitTemp[2];
@@ -462,17 +463,10 @@ namespace Version_1
 
         private void btAtRun_Click(object sender, EventArgs e)
         {
-            //moving to Top position.
-            string str = "G1" + " X" + txtPosX3.Text + " Y" + txtPosY3 + " X" + txtPosZ3 + cbbResolution.SelectedItem.ToString() + " " + 'F' + txtFeedRate.Text;
-            int intTopStageDelay = Int32.Parse(txtPosT3.Text);
-            serialPort.WriteLine("G1 X" + txtPosX3.Text + " F" + txtFeedRate.Text);
-            System.Threading.Thread.Sleep(10);
-            serialPort.WriteLine("G1 Z" + txtPosZ3.Text + " F" + txtFeedRate.Text);
-            System.Threading.Thread.Sleep(10);
-            serialPort.WriteLine("G1 Y" + txtPosY3.Text + " F" + txtFeedRate.Text);
+            backgroundWorker.WorkerReportsProgress = true;
+            backgroundWorker.RunWorkerAsync();
 
-
-
+            //backward 
         }
 
         private void backward()
@@ -480,22 +474,25 @@ namespace Version_1
             //avoid crashing the oven.
             string str = "G1 Y-20.000 "+ 'F' + txtFeedRate.Text;
             serialPort.WriteLine(str);
-            moving_indicator(20.000);
+            moving_indicator(Convert.ToString(20.000), Convert.ToString(0.000));
         }
 
-        private bool moving_indicator(double distance)
+        private bool moving_indicator(string destination, string Origin)
         {
+            double distance = double.Parse(destination) - double.Parse(Origin);
             double resolution = double.Parse(txtFeedRate.Text) / 60000.000;
             intMovingInterval = (int)(distance / resolution);
+            Moving_Interval.Interval = intMovingInterval;
             Moving_Interval.Enabled = true;
+            flagMoving = true;
             return true;
         }
 
-        private bool waiting_indicator(double distance)
+        private bool waiting_indicator(int intInterval)
         {
-            double resolution = double.Parse(txtFeedRate.Text) / 60000.000;
-            intWaitingInterval = (int)(distance / resolution);
+            Waiting_Interval.Interval = intInterval;
             Waiting_Interval.Enabled = true;
+            flagWaiting = true;
             return true;
         }
 
@@ -516,6 +513,7 @@ namespace Version_1
                 intMovingIntervalCount = 0;
                 ovalMoving.FillColor = System.Drawing.Color.Red;
                 Moving_Interval.Enabled = false;
+                flagMoving = false;
             }
         }
 
@@ -538,7 +536,83 @@ namespace Version_1
                 intMovingIntervalCount = 0;
                 ovalWaiting.FillColor = System.Drawing.Color.Blue;
                 Waiting_Interval.Enabled = false;
+                flagWaiting = false;
             }
+        }
+
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //top position
+            int intTopStageDelay = Int32.Parse(txtPosT3.Text);
+            read_position();
+            System.Threading.Thread.Sleep(10);
+
+            serialPort.WriteLine("G1 X" + txtPosX3.Text + " F" + txtFeedRate.Text);
+            moving_indicator(txtPosX3.Text, txtXCurrentPos.Text);
+            System.Threading.Thread.Sleep(10);
+            while (flagMoving) continue;
+
+            serialPort.WriteLine("G1 Z" + txtPosZ3.Text + " F" + txtFeedRate.Text);
+            moving_indicator(txtPosZ3.Text, txtZCurrentPos.Text);
+            System.Threading.Thread.Sleep(10);
+            while (flagMoving) continue;
+
+            serialPort.WriteLine("G1 Y" + txtPosY3.Text + " F" + txtFeedRate.Text);
+            moving_indicator(txtPosY3.Text, txtYCurrentPos.Text);
+            System.Threading.Thread.Sleep(10);
+            while (flagMoving) continue;
+
+            waiting_indicator(intTopStageDelay);
+            while (flagWaiting) continue;
+
+
+            //Medium position
+            int intMediumStageDelay = Int32.Parse(txtPosT1.Text);
+            read_position();
+            System.Threading.Thread.Sleep(10);
+
+            serialPort.WriteLine("G1 X" + txtPosX1.Text + " F" + txtFeedRate.Text);
+            moving_indicator(txtPosX1.Text, txtXCurrentPos.Text);
+            System.Threading.Thread.Sleep(10);
+            while (flagMoving) continue;
+
+            serialPort.WriteLine("G1 Z" + txtPosZ1.Text + " F" + txtFeedRate.Text);
+            moving_indicator(txtPosZ1.Text, txtZCurrentPos.Text);
+            System.Threading.Thread.Sleep(10);
+            while (flagMoving) continue;
+
+            serialPort.WriteLine("G1 Y" + txtPosY1.Text + " F" + txtFeedRate.Text);
+            moving_indicator(txtPosY1.Text, txtYCurrentPos.Text);
+            System.Threading.Thread.Sleep(10);
+            while (flagMoving) continue;
+
+            waiting_indicator(intMediumStageDelay);
+            while (flagWaiting) continue;
+
+            //Bottom position
+            int intBottomStageDelay = Int32.Parse(txtPosT1.Text);
+            read_position();
+            System.Threading.Thread.Sleep(10);
+
+            serialPort.WriteLine("G1 X" + txtPosX2.Text + " F" + txtFeedRate.Text);
+            moving_indicator(txtPosX2.Text, txtXCurrentPos.Text);
+            System.Threading.Thread.Sleep(10);
+            while (flagMoving) continue;
+
+            serialPort.WriteLine("G1 Z" + txtPosZ2.Text + " F" + txtFeedRate.Text);
+            moving_indicator(txtPosZ2.Text, txtZCurrentPos.Text);
+            System.Threading.Thread.Sleep(10);
+            while (flagMoving) continue;
+
+            serialPort.WriteLine("G1 Y" + txtPosY2.Text + " F" + txtFeedRate.Text);
+            moving_indicator(txtPosY2.Text, txtYCurrentPos.Text);
+            System.Threading.Thread.Sleep(10);
+            while (flagMoving) continue;
+
+            waiting_indicator(intMediumStageDelay);
+            while (flagWaiting) continue;
+
+            btHome_Click(null, null);
         }
     }
 }

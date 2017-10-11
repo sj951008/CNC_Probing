@@ -62,8 +62,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.atPage = new System.Windows.Forms.TabPage();
             this.btAtRun = new System.Windows.Forms.Button();
-            this.txtDelay = new System.Windows.Forms.TextBox();
-            this.lblMovingDelay = new System.Windows.Forms.Label();
             this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.ovalShape6 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.ovalShape5 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
@@ -72,6 +70,7 @@
             this.mnPage = new System.Windows.Forms.TabPage();
             this.txtDirectory = new System.Windows.Forms.TextBox();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.ovalWaiting = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.ovalMoving = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.lineShape5 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.ovalShape7 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
@@ -129,7 +128,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtPosT0 = new System.Windows.Forms.TextBox();
             this.Moving_Interval = new System.Windows.Forms.Timer(this.components);
-            this.ovalWaiting = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.groupBoxSerialPortSetup.SuspendLayout();
             this.gbPosition.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -491,8 +490,6 @@
             // atPage
             // 
             this.atPage.Controls.Add(this.btAtRun);
-            this.atPage.Controls.Add(this.txtDelay);
-            this.atPage.Controls.Add(this.lblMovingDelay);
             this.atPage.Controls.Add(this.shapeContainer3);
             this.atPage.Location = new System.Drawing.Point(4, 22);
             this.atPage.Name = "atPage";
@@ -505,29 +502,13 @@
             // btAtRun
             // 
             this.btAtRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btAtRun.Location = new System.Drawing.Point(54, 113);
+            this.btAtRun.Location = new System.Drawing.Point(58, 86);
             this.btAtRun.Name = "btAtRun";
             this.btAtRun.Size = new System.Drawing.Size(55, 26);
             this.btAtRun.TabIndex = 3;
             this.btAtRun.Text = "Run";
             this.btAtRun.UseVisualStyleBackColor = true;
             this.btAtRun.Click += new System.EventHandler(this.btAtRun_Click);
-            // 
-            // txtDelay
-            // 
-            this.txtDelay.Location = new System.Drawing.Point(96, 76);
-            this.txtDelay.Name = "txtDelay";
-            this.txtDelay.Size = new System.Drawing.Size(49, 20);
-            this.txtDelay.TabIndex = 2;
-            // 
-            // lblMovingDelay
-            // 
-            this.lblMovingDelay.AutoSize = true;
-            this.lblMovingDelay.Location = new System.Drawing.Point(12, 79);
-            this.lblMovingDelay.Name = "lblMovingDelay";
-            this.lblMovingDelay.Size = new System.Drawing.Size(78, 13);
-            this.lblMovingDelay.TabIndex = 1;
-            this.lblMovingDelay.Text = "Moving Delay :";
             // 
             // shapeContainer3
             // 
@@ -610,6 +591,14 @@
             this.shapeContainer4.Size = new System.Drawing.Size(492, 935);
             this.shapeContainer4.TabIndex = 0;
             this.shapeContainer4.TabStop = false;
+            // 
+            // ovalWaiting
+            // 
+            this.ovalWaiting.FillColor = System.Drawing.Color.Blue;
+            this.ovalWaiting.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
+            this.ovalWaiting.Location = new System.Drawing.Point(272, 559);
+            this.ovalWaiting.Name = "ovalWaiting";
+            this.ovalWaiting.Size = new System.Drawing.Size(42, 38);
             // 
             // ovalMoving
             // 
@@ -1037,7 +1026,7 @@
             this.groupBox4.Size = new System.Drawing.Size(225, 136);
             this.groupBox4.TabIndex = 29;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Bottom Position";
+            this.groupBox4.Text = "Reference Position";
             // 
             // label14
             // 
@@ -1117,13 +1106,9 @@
             // 
             this.Moving_Interval.Tick += new System.EventHandler(this.Moving_Tick);
             // 
-            // ovalWaiting
+            // backgroundWorker
             // 
-            this.ovalWaiting.FillColor = System.Drawing.Color.Blue;
-            this.ovalWaiting.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovalWaiting.Location = new System.Drawing.Point(272, 559);
-            this.ovalWaiting.Name = "ovalWaiting";
-            this.ovalWaiting.Size = new System.Drawing.Size(42, 38);
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
             // 
             // Form1
             // 
@@ -1149,7 +1134,6 @@
             this.shapeContainer1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.atPage.ResumeLayout(false);
-            this.atPage.PerformLayout();
             this.gbFirstStage.ResumeLayout(false);
             this.gbFirstStage.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1245,8 +1229,6 @@
         private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape6;
         private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape5;
         private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape4;
-        private System.Windows.Forms.Label lblMovingDelay;
-        private System.Windows.Forms.TextBox txtDelay;
         private System.Windows.Forms.Button btAtRun;
         private System.Windows.Forms.Timer Waiting_Interval;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape5;
@@ -1265,6 +1247,7 @@
         private System.Windows.Forms.Timer Moving_Interval;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.OvalShape ovalWaiting;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
     }
 }
 
