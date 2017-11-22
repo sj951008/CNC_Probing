@@ -59,19 +59,8 @@
             this.btLoad = new System.Windows.Forms.Button();
             this.txtSave = new System.Windows.Forms.TextBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.atPage = new System.Windows.Forms.TabPage();
             this.btAtRun = new System.Windows.Forms.Button();
-            this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.ovalShape6 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape5 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape4 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.refPage = new System.Windows.Forms.TabPage();
-            this.mnPage = new System.Windows.Forms.TabPage();
             this.txtDirectory = new System.Windows.Forms.TextBox();
-            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.ovalWaiting = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalMoving = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.lineShape5 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.ovalShape7 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.lineShape8 = new Microsoft.VisualBasic.PowerPacks.LineShape();
@@ -133,8 +122,6 @@
             this.gbPosition.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.shapeContainer1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.atPage.SuspendLayout();
             this.gbFirstStage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -143,7 +130,7 @@
             // 
             // serialPort
             // 
-            this.serialPort.BaudRate = 250000;
+            this.serialPort.BaudRate = 115200;
             this.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort_Received);
             // 
             // groupBoxSerialPortSetup
@@ -188,7 +175,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(216, 899);
+            this.btSave.Location = new System.Drawing.Point(391, 786);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(75, 23);
             this.btSave.TabIndex = 6;
@@ -429,7 +416,7 @@
             // 
             // btLoad
             // 
-            this.btLoad.Location = new System.Drawing.Point(217, 870);
+            this.btLoad.Location = new System.Drawing.Point(310, 786);
             this.btLoad.Name = "btLoad";
             this.btLoad.Size = new System.Drawing.Size(75, 23);
             this.btLoad.TabIndex = 16;
@@ -442,19 +429,18 @@
             this.txtSave.Location = new System.Drawing.Point(9, 750);
             this.txtSave.Multiline = true;
             this.txtSave.Name = "txtSave";
-            this.txtSave.Size = new System.Drawing.Size(201, 172);
+            this.txtSave.Size = new System.Drawing.Size(201, 88);
             this.txtSave.TabIndex = 22;
             // 
             // shapeContainer1
             // 
-            this.shapeContainer1.Controls.Add(this.tabControl1);
+            this.shapeContainer1.Controls.Add(this.btAtRun);
             this.shapeContainer1.Controls.Add(this.groupBoxSerialPortSetup);
             this.shapeContainer1.Controls.Add(this.txtDirectory);
             this.shapeContainer1.Controls.Add(this.btSave);
             this.shapeContainer1.Controls.Add(this.btLoad);
             this.shapeContainer1.Controls.Add(this.txtSave);
             this.shapeContainer1.Controls.Add(this.groupBox3);
-            this.shapeContainer1.Controls.Add(this.shapeContainer4);
             this.shapeContainer1.Controls.Add(this.gbPosition);
             this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
             this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
@@ -472,37 +458,14 @@
             this.ovalShape2,
             this.ovalShape1,
             this.rectangleShape});
-            this.shapeContainer1.Size = new System.Drawing.Size(492, 935);
+            this.shapeContainer1.Size = new System.Drawing.Size(492, 850);
             this.shapeContainer1.TabIndex = 23;
             this.shapeContainer1.TabStop = false;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.atPage);
-            this.tabControl1.Controls.Add(this.refPage);
-            this.tabControl1.Controls.Add(this.mnPage);
-            this.tabControl1.Location = new System.Drawing.Point(301, 750);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(180, 172);
-            this.tabControl1.TabIndex = 28;
-            // 
-            // atPage
-            // 
-            this.atPage.Controls.Add(this.btAtRun);
-            this.atPage.Controls.Add(this.shapeContainer3);
-            this.atPage.Location = new System.Drawing.Point(4, 22);
-            this.atPage.Name = "atPage";
-            this.atPage.Padding = new System.Windows.Forms.Padding(3);
-            this.atPage.Size = new System.Drawing.Size(172, 146);
-            this.atPage.TabIndex = 0;
-            this.atPage.Text = "AUTO";
-            this.atPage.UseVisualStyleBackColor = true;
             // 
             // btAtRun
             // 
             this.btAtRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btAtRun.Location = new System.Drawing.Point(58, 86);
+            this.btAtRun.Location = new System.Drawing.Point(361, 815);
             this.btAtRun.Name = "btAtRun";
             this.btAtRun.Size = new System.Drawing.Size(55, 26);
             this.btAtRun.TabIndex = 3;
@@ -510,103 +473,13 @@
             this.btAtRun.UseVisualStyleBackColor = true;
             this.btAtRun.Click += new System.EventHandler(this.btAtRun_Click);
             // 
-            // shapeContainer3
-            // 
-            this.shapeContainer3.Location = new System.Drawing.Point(3, 3);
-            this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer3.Name = "shapeContainer3";
-            this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.ovalShape6,
-            this.ovalShape5,
-            this.ovalShape4});
-            this.shapeContainer3.Size = new System.Drawing.Size(166, 140);
-            this.shapeContainer3.TabIndex = 0;
-            this.shapeContainer3.TabStop = false;
-            // 
-            // ovalShape6
-            // 
-            this.ovalShape6.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.ovalShape6.FillColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape6.FillGradientColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape6.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovalShape6.Location = new System.Drawing.Point(117, 15);
-            this.ovalShape6.Name = "ovalShape6";
-            this.ovalShape6.Size = new System.Drawing.Size(40, 38);
-            // 
-            // ovalShape5
-            // 
-            this.ovalShape5.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.ovalShape5.FillColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape5.FillGradientColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape5.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovalShape5.Location = new System.Drawing.Point(65, 16);
-            this.ovalShape5.Name = "ovalShape5";
-            this.ovalShape5.Size = new System.Drawing.Size(40, 38);
-            // 
-            // ovalShape4
-            // 
-            this.ovalShape4.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.ovalShape4.FillColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape4.FillGradientColor = System.Drawing.Color.Chartreuse;
-            this.ovalShape4.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovalShape4.Location = new System.Drawing.Point(14, 16);
-            this.ovalShape4.Name = "ovalShape4";
-            this.ovalShape4.Size = new System.Drawing.Size(40, 38);
-            // 
-            // refPage
-            // 
-            this.refPage.Location = new System.Drawing.Point(4, 22);
-            this.refPage.Name = "refPage";
-            this.refPage.Padding = new System.Windows.Forms.Padding(3);
-            this.refPage.Size = new System.Drawing.Size(172, 146);
-            this.refPage.TabIndex = 1;
-            this.refPage.Text = "Ref.";
-            this.refPage.UseVisualStyleBackColor = true;
-            // 
-            // mnPage
-            // 
-            this.mnPage.Location = new System.Drawing.Point(4, 22);
-            this.mnPage.Name = "mnPage";
-            this.mnPage.Padding = new System.Windows.Forms.Padding(3);
-            this.mnPage.Size = new System.Drawing.Size(172, 146);
-            this.mnPage.TabIndex = 2;
-            this.mnPage.Text = "Manual Mode";
-            this.mnPage.UseVisualStyleBackColor = true;
-            // 
             // txtDirectory
             // 
-            this.txtDirectory.Location = new System.Drawing.Point(216, 844);
+            this.txtDirectory.Location = new System.Drawing.Point(310, 755);
             this.txtDirectory.Name = "txtDirectory";
-            this.txtDirectory.Size = new System.Drawing.Size(79, 20);
+            this.txtDirectory.Size = new System.Drawing.Size(158, 20);
             this.txtDirectory.TabIndex = 27;
-            // 
-            // shapeContainer4
-            // 
-            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer4.Name = "shapeContainer4";
-            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.ovalWaiting,
-            this.ovalMoving});
-            this.shapeContainer4.Size = new System.Drawing.Size(492, 935);
-            this.shapeContainer4.TabIndex = 0;
-            this.shapeContainer4.TabStop = false;
-            // 
-            // ovalWaiting
-            // 
-            this.ovalWaiting.FillColor = System.Drawing.Color.Blue;
-            this.ovalWaiting.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovalWaiting.Location = new System.Drawing.Point(272, 559);
-            this.ovalWaiting.Name = "ovalWaiting";
-            this.ovalWaiting.Size = new System.Drawing.Size(42, 38);
-            // 
-            // ovalMoving
-            // 
-            this.ovalMoving.FillColor = System.Drawing.Color.Red;
-            this.ovalMoving.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovalMoving.Location = new System.Drawing.Point(373, 558);
-            this.ovalMoving.Name = "ovalMoving";
-            this.ovalMoving.Size = new System.Drawing.Size(42, 38);
+            this.txtDirectory.Text = "File does not load!";
             // 
             // lineShape5
             // 
@@ -1109,12 +982,13 @@
             // backgroundWorker
             // 
             this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 935);
+            this.ClientSize = new System.Drawing.Size(492, 850);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -1132,8 +1006,6 @@
             this.groupBox3.PerformLayout();
             this.shapeContainer1.ResumeLayout(false);
             this.shapeContainer1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.atPage.ResumeLayout(false);
             this.gbFirstStage.ResumeLayout(false);
             this.gbFirstStage.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1221,14 +1093,6 @@
         private System.Windows.Forms.TextBox txtPosZ3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtPosZ2;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage atPage;
-        private System.Windows.Forms.TabPage refPage;
-        private System.Windows.Forms.TabPage mnPage;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer3;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape6;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape5;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape4;
         private System.Windows.Forms.Button btAtRun;
         private System.Windows.Forms.Timer Waiting_Interval;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape5;
@@ -1243,10 +1107,7 @@
         private System.Windows.Forms.TextBox txtPosX0;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtPosT0;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalMoving;
         private System.Windows.Forms.Timer Moving_Interval;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalWaiting;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
     }
 }
