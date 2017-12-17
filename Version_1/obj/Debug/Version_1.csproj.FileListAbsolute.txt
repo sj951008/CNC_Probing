@@ -26,3 +26,12 @@ E:\Pae Works\git\CNC_Probing\Version_1\obj\Debug\Version_1.pdb
 E:\Pae Works\git\CNC_Probing\Version_1\bin\Debug\Version_1.exe
 E:\Pae Works\git\CNC_Probing\Version_1\bin\Debug\Version_1.pdb
 E:\Pae Works\git\CNC_Probing\Version_1\bin\Debug\Microsoft.VisualBasic.dll
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\obj\Debug\Version_1.exe
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\obj\Debug\Version_1.pdb
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\bin\Debug\Version_1.exe
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\bin\Debug\Version_1.pdb
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\bin\Debug\Microsoft.VisualBasic.dll
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\obj\Debug\Version_1.Form1.resources
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\obj\Debug\Version_1.Properties.Resources.resources
+C:\Users\Siwakorn\Desktop\CNC_Probing-master\Version_1\obj\Debug\Version_1.csproj.GenerateResource.Cache

@@ -42,8 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtZCurrentPos = new System.Windows.Forms.TextBox();
             this.gbPosition = new System.Windows.Forms.GroupBox();
-            this.txtPosT1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btJogZNeg = new System.Windows.Forms.Button();
             this.btJogZPos = new System.Windows.Forms.Button();
@@ -59,8 +57,6 @@
             this.btLoad = new System.Windows.Forms.Button();
             this.txtSave = new System.Windows.Forms.TextBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.btAtRun = new System.Windows.Forms.Button();
-            this.txtDirectory = new System.Windows.Forms.TextBox();
             this.lineShape5 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.ovalShape7 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.lineShape8 = new Microsoft.VisualBasic.PowerPacks.LineShape();
@@ -73,6 +69,8 @@
             this.ovalShape2 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.ovalShape1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.rectangleShape = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.btAtRun = new System.Windows.Forms.Button();
+            this.txtDirectory = new System.Windows.Forms.TextBox();
             this.gbFirstStage = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPosZ1 = new System.Windows.Forms.TextBox();
@@ -91,8 +89,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtPosY3 = new System.Windows.Forms.TextBox();
             this.txtPosX3 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtPosT3 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtPosZ2 = new System.Windows.Forms.TextBox();
@@ -101,8 +97,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtPosY2 = new System.Windows.Forms.TextBox();
             this.txtPosX2 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtPosT2 = new System.Windows.Forms.TextBox();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.Waiting_Interval = new System.Windows.Forms.Timer(this.components);
@@ -114,14 +108,13 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtPosY0 = new System.Windows.Forms.TextBox();
             this.txtPosX0 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtPosT0 = new System.Windows.Forms.TextBox();
             this.Moving_Interval = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.btRef = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBoxSerialPortSetup.SuspendLayout();
             this.gbPosition.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.shapeContainer1.SuspendLayout();
             this.gbFirstStage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -130,14 +123,14 @@
             // 
             // serialPort
             // 
-            this.serialPort.BaudRate = 115200;
+            this.serialPort.BaudRate = 250000;
             this.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort_Received);
             // 
             // groupBoxSerialPortSetup
             // 
             this.groupBoxSerialPortSetup.Controls.Add(this.cbbComPort);
             this.groupBoxSerialPortSetup.Controls.Add(this.btConnect);
-            this.groupBoxSerialPortSetup.Location = new System.Drawing.Point(216, 750);
+            this.groupBoxSerialPortSetup.Location = new System.Drawing.Point(405, 752);
             this.groupBoxSerialPortSetup.Name = "groupBoxSerialPortSetup";
             this.groupBoxSerialPortSetup.Size = new System.Drawing.Size(79, 88);
             this.groupBoxSerialPortSetup.TabIndex = 4;
@@ -175,7 +168,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(391, 786);
+            this.btSave.Location = new System.Drawing.Point(299, 783);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(75, 23);
             this.btSave.TabIndex = 6;
@@ -266,22 +259,6 @@
             this.gbPosition.TabIndex = 13;
             this.gbPosition.TabStop = false;
             this.gbPosition.Text = "Current Position";
-            // 
-            // txtPosT1
-            // 
-            this.txtPosT1.Location = new System.Drawing.Point(29, 98);
-            this.txtPosT1.Name = "txtPosT1";
-            this.txtPosT1.Size = new System.Drawing.Size(79, 20);
-            this.txtPosT1.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 101);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "T1";
             // 
             // groupBox3
             // 
@@ -416,7 +393,7 @@
             // 
             // btLoad
             // 
-            this.btLoad.Location = new System.Drawing.Point(310, 786);
+            this.btLoad.Location = new System.Drawing.Point(218, 783);
             this.btLoad.Name = "btLoad";
             this.btLoad.Size = new System.Drawing.Size(75, 23);
             this.btLoad.TabIndex = 16;
@@ -426,7 +403,7 @@
             // 
             // txtSave
             // 
-            this.txtSave.Location = new System.Drawing.Point(9, 750);
+            this.txtSave.Location = new System.Drawing.Point(12, 750);
             this.txtSave.Multiline = true;
             this.txtSave.Name = "txtSave";
             this.txtSave.Size = new System.Drawing.Size(201, 88);
@@ -434,14 +411,6 @@
             // 
             // shapeContainer1
             // 
-            this.shapeContainer1.Controls.Add(this.btAtRun);
-            this.shapeContainer1.Controls.Add(this.groupBoxSerialPortSetup);
-            this.shapeContainer1.Controls.Add(this.txtDirectory);
-            this.shapeContainer1.Controls.Add(this.btSave);
-            this.shapeContainer1.Controls.Add(this.btLoad);
-            this.shapeContainer1.Controls.Add(this.txtSave);
-            this.shapeContainer1.Controls.Add(this.groupBox3);
-            this.shapeContainer1.Controls.Add(this.gbPosition);
             this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
             this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer1.Name = "shapeContainer1";
@@ -458,28 +427,9 @@
             this.ovalShape2,
             this.ovalShape1,
             this.rectangleShape});
-            this.shapeContainer1.Size = new System.Drawing.Size(492, 850);
+            this.shapeContainer1.Size = new System.Drawing.Size(484, 840);
             this.shapeContainer1.TabIndex = 23;
             this.shapeContainer1.TabStop = false;
-            // 
-            // btAtRun
-            // 
-            this.btAtRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btAtRun.Location = new System.Drawing.Point(361, 815);
-            this.btAtRun.Name = "btAtRun";
-            this.btAtRun.Size = new System.Drawing.Size(55, 26);
-            this.btAtRun.TabIndex = 3;
-            this.btAtRun.Text = "Run";
-            this.btAtRun.UseVisualStyleBackColor = true;
-            this.btAtRun.Click += new System.EventHandler(this.btAtRun_Click);
-            // 
-            // txtDirectory
-            // 
-            this.txtDirectory.Location = new System.Drawing.Point(310, 755);
-            this.txtDirectory.Name = "txtDirectory";
-            this.txtDirectory.Size = new System.Drawing.Size(158, 20);
-            this.txtDirectory.TabIndex = 27;
-            this.txtDirectory.Text = "File does not load!";
             // 
             // lineShape5
             // 
@@ -591,6 +541,25 @@
             this.rectangleShape.Name = "rectangleShape";
             this.rectangleShape.Size = new System.Drawing.Size(200, 587);
             // 
+            // btAtRun
+            // 
+            this.btAtRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btAtRun.Location = new System.Drawing.Point(229, 812);
+            this.btAtRun.Name = "btAtRun";
+            this.btAtRun.Size = new System.Drawing.Size(55, 26);
+            this.btAtRun.TabIndex = 3;
+            this.btAtRun.Text = "Run";
+            this.btAtRun.UseVisualStyleBackColor = true;
+            this.btAtRun.Click += new System.EventHandler(this.btAtRun_Click);
+            // 
+            // txtDirectory
+            // 
+            this.txtDirectory.Location = new System.Drawing.Point(218, 752);
+            this.txtDirectory.Name = "txtDirectory";
+            this.txtDirectory.Size = new System.Drawing.Size(158, 20);
+            this.txtDirectory.TabIndex = 27;
+            this.txtDirectory.Text = "File does not load!";
+            // 
             // gbFirstStage
             // 
             this.gbFirstStage.Controls.Add(this.label6);
@@ -600,13 +569,11 @@
             this.gbFirstStage.Controls.Add(this.label1);
             this.gbFirstStage.Controls.Add(this.txtPosY1);
             this.gbFirstStage.Controls.Add(this.txtPosX1);
-            this.gbFirstStage.Controls.Add(this.label5);
-            this.gbFirstStage.Controls.Add(this.txtPosT1);
             this.gbFirstStage.Controls.Add(this.shapeContainer2);
             this.gbFirstStage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbFirstStage.Location = new System.Drawing.Point(256, 142);
             this.gbFirstStage.Name = "gbFirstStage";
-            this.gbFirstStage.Size = new System.Drawing.Size(225, 128);
+            this.gbFirstStage.Size = new System.Drawing.Size(225, 101);
             this.gbFirstStage.TabIndex = 24;
             this.gbFirstStage.TabStop = false;
             this.gbFirstStage.Text = "Medium Position";
@@ -631,7 +598,7 @@
             // 
             this.btSaveStage1.Location = new System.Drawing.Point(114, 19);
             this.btSaveStage1.Name = "btSaveStage1";
-            this.btSaveStage1.Size = new System.Drawing.Size(75, 99);
+            this.btSaveStage1.Size = new System.Drawing.Size(75, 73);
             this.btSaveStage1.TabIndex = 28;
             this.btSaveStage1.Text = "Save Position";
             this.btSaveStage1.UseVisualStyleBackColor = true;
@@ -676,7 +643,7 @@
             this.shapeContainer2.Name = "shapeContainer2";
             this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape4});
-            this.shapeContainer2.Size = new System.Drawing.Size(219, 109);
+            this.shapeContainer2.Size = new System.Drawing.Size(219, 82);
             this.shapeContainer2.TabIndex = 29;
             this.shapeContainer2.TabStop = false;
             // 
@@ -697,12 +664,10 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtPosY3);
             this.groupBox1.Controls.Add(this.txtPosX3);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtPosT3);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(256, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(225, 129);
+            this.groupBox1.Size = new System.Drawing.Size(225, 99);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Top Position";
@@ -727,7 +692,7 @@
             // 
             this.btSaveStage3.Location = new System.Drawing.Point(114, 19);
             this.btSaveStage3.Name = "btSaveStage3";
-            this.btSaveStage3.Size = new System.Drawing.Size(75, 99);
+            this.btSaveStage3.Size = new System.Drawing.Size(75, 73);
             this.btSaveStage3.TabIndex = 27;
             this.btSaveStage3.Text = "Save Position";
             this.btSaveStage3.UseVisualStyleBackColor = true;
@@ -765,22 +730,6 @@
             this.txtPosX3.Size = new System.Drawing.Size(79, 20);
             this.txtPosX3.TabIndex = 25;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 101);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(20, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "T3";
-            // 
-            // txtPosT3
-            // 
-            this.txtPosT3.Location = new System.Drawing.Point(29, 98);
-            this.txtPosT3.Name = "txtPosT3";
-            this.txtPosT3.Size = new System.Drawing.Size(79, 20);
-            this.txtPosT3.TabIndex = 7;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label13);
@@ -790,12 +739,10 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.txtPosY2);
             this.groupBox2.Controls.Add(this.txtPosX2);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.txtPosT2);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Location = new System.Drawing.Point(256, 277);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(225, 131);
+            this.groupBox2.Size = new System.Drawing.Size(225, 102);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bottom Position";
@@ -820,7 +767,7 @@
             // 
             this.btSaveStage2.Location = new System.Drawing.Point(114, 19);
             this.btSaveStage2.Name = "btSaveStage2";
-            this.btSaveStage2.Size = new System.Drawing.Size(75, 99);
+            this.btSaveStage2.Size = new System.Drawing.Size(75, 73);
             this.btSaveStage2.TabIndex = 28;
             this.btSaveStage2.Text = "Save Position";
             this.btSaveStage2.UseVisualStyleBackColor = true;
@@ -858,22 +805,6 @@
             this.txtPosX2.Size = new System.Drawing.Size(79, 20);
             this.txtPosX2.TabIndex = 25;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 101);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 13);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "T2";
-            // 
-            // txtPosT2
-            // 
-            this.txtPosT2.Location = new System.Drawing.Point(29, 98);
-            this.txtPosT2.Name = "txtPosT2";
-            this.txtPosT2.Size = new System.Drawing.Size(79, 20);
-            this.txtPosT2.TabIndex = 7;
-            // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
@@ -891,12 +822,10 @@
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.txtPosY0);
             this.groupBox4.Controls.Add(this.txtPosX0);
-            this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.txtPosT0);
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox4.Location = new System.Drawing.Point(256, 414);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(225, 136);
+            this.groupBox4.Size = new System.Drawing.Size(225, 107);
             this.groupBox4.TabIndex = 29;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Reference Position";
@@ -921,7 +850,7 @@
             // 
             this.btSaveStage0.Location = new System.Drawing.Point(114, 19);
             this.btSaveStage0.Name = "btSaveStage0";
-            this.btSaveStage0.Size = new System.Drawing.Size(75, 99);
+            this.btSaveStage0.Size = new System.Drawing.Size(75, 73);
             this.btSaveStage0.TabIndex = 28;
             this.btSaveStage0.Text = "Save Position";
             this.btSaveStage0.UseVisualStyleBackColor = true;
@@ -959,22 +888,6 @@
             this.txtPosX0.Size = new System.Drawing.Size(79, 20);
             this.txtPosX0.TabIndex = 25;
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 101);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(20, 13);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "T0";
-            // 
-            // txtPosT0
-            // 
-            this.txtPosT0.Location = new System.Drawing.Point(29, 98);
-            this.txtPosT0.Name = "txtPosT0";
-            this.txtPosT0.Size = new System.Drawing.Size(79, 20);
-            this.txtPosT0.TabIndex = 7;
-            // 
             // Moving_Interval
             // 
             this.Moving_Interval.Tick += new System.EventHandler(this.Moving_Tick);
@@ -984,11 +897,38 @@
             this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
             this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
             // 
+            // btRef
+            // 
+            this.btRef.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btRef.Location = new System.Drawing.Point(309, 812);
+            this.btRef.Name = "btRef";
+            this.btRef.Size = new System.Drawing.Size(55, 26);
+            this.btRef.TabIndex = 30;
+            this.btRef.Text = "Ref";
+            this.btRef.UseVisualStyleBackColor = true;
+            this.btRef.Click += new System.EventHandler(this.btRef_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 850);
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(494, 741);
+            this.Controls.Add(this.btRef);
+            this.Controls.Add(this.btAtRun);
+            this.Controls.Add(this.groupBoxSerialPortSetup);
+            this.Controls.Add(this.txtDirectory);
+            this.Controls.Add(this.btSave);
+            this.Controls.Add(this.btLoad);
+            this.Controls.Add(this.txtSave);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.gbPosition);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -996,6 +936,7 @@
             this.Controls.Add(this.shapeContainer1);
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "WinnerPrototype";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
@@ -1004,8 +945,6 @@
             this.gbPosition.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.shapeContainer1.ResumeLayout(false);
-            this.shapeContainer1.PerformLayout();
             this.gbFirstStage.ResumeLayout(false);
             this.gbFirstStage.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1015,6 +954,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1033,8 +973,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtZCurrentPos;
         private System.Windows.Forms.GroupBox gbPosition;
-        private System.Windows.Forms.TextBox txtPosT1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btJogXNeg;
         private System.Windows.Forms.Button btJogXPos;
@@ -1067,15 +1005,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtPosY3;
         private System.Windows.Forms.TextBox txtPosX3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtPosT3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPosY2;
         private System.Windows.Forms.TextBox txtPosX2;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtPosT2;
         private System.Windows.Forms.Button btSaveStage3;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape8;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape7;
@@ -1105,10 +1039,10 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtPosY0;
         private System.Windows.Forms.TextBox txtPosX0;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox txtPosT0;
         private System.Windows.Forms.Timer Moving_Interval;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private System.Windows.Forms.Button btRef;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
